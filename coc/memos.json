@@ -663,7 +663,7 @@
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
   },
   "coc-rust-analyzer|global": {
-    "release": "2023-03-06"
+    "release": "2023-03-13"
   },
   "coc-python|/home/lrenner": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
