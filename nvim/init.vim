@@ -21,6 +21,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 
 " Use release branch (recommended)
+" Requires nodejs to work properly
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
