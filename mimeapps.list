@@ -1,0 +1,19 @@
+[Default Applications]
+x-scheme-handler/http=firefox.desktop
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-content/video-dvd=org.videolan.VLC-opendvd.desktop
+application/octet-stream=org.videolan.VLC.desktop
+audio/x-wav=org.videolan.VLC.desktop
+
+[Added Associations]
+x-scheme-handler/http=org.gnome.Epiphany.desktop;firefox.desktop;
+text/html=org.gnome.Epiphany.desktop;firefox.desktop;
+application/xhtml+xml=org.gnome.Epiphany.desktop;firefox.desktop;
+x-scheme-handler/https=org.gnome.Epiphany.desktop;firefox.desktop;
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-content/video-dvd=org.videolan.VLC-opendvd.desktop;
+application/octet-stream=org.videolan.VLC.desktop;
+audio/x-wav=org.videolan.VLC.desktop;
