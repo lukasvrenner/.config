@@ -24,6 +24,7 @@ Plug 'airblade/vim-gitgutter'
 " Requires nodejs to work properly
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Changes color to match dracula theme
@@ -31,7 +32,7 @@ highlight GitGutterAdd    guifg=#50fa7b ctermfg=2
 highlight GitGutterChange guifg=#ffb86c ctermfg=3
 highlight GitGutterDelete guifg=#ff5555 ctermfg=1
 
-
+let g:indentLine_setColors = 0
 
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
@@ -70,11 +71,16 @@ noremap l n
 noremap L N
 
 " sets leader key, which can be used to run more shortcuts
-let mapleader ='l'
+let mapleader ='.'
 " easy access to beginning and end of line
 noremap - $
-noremap _ ^
 
+" centers cursor on page up or down
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
+
+noremap <Leader>o o<Esc>
+noremap <Leader>O O<Esc>
 colorscheme dracula
 
 let g:NERDCreateDefaultMappings = 1

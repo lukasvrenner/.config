@@ -1,6 +1,6 @@
 background-color=#44475a
 border-color=#6272a4
 border-radius=5
-#default-timeout=5000
+default-timeout=4000
 ignore-timeout=1
 padding=5,9,10,0
