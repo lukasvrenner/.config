@@ -8,16 +8,15 @@
 <VirtualBox xmlns="http://www.virtualbox.org/" version="1.12-linux">
   <Global>
     <ExtraData>
-      <ExtraDataItem name="GUI/LastItemSelected" value="m=272f72a1-02a7-48d5-86e4-45d3a2ba8357"/>
-      <ExtraDataItem name="GUI/LastWindowPosition" value="1845,37,549,1006,max"/>
-      <ExtraDataItem name="GUI/RecentFolderCD" value="/home/lrenner/Downloads/OS Images"/>
-      <ExtraDataItem name="GUI/RecentListCD" value="/home/lrenner/Downloads/OS Images/manjaro-sway-22.0.3-230213-linux515.iso,/home/lrenner/Downloads/OS Images/archlinux-2023.02.01-x86_64.iso"/>
+      <ExtraDataItem name="GUI/LastItemSelected" value="m=86475d87-fd1f-4f44-8b98-f7b3a8dd1d14"/>
+      <ExtraDataItem name="GUI/LastWindowPosition" value="7,42,1266,786,max"/>
+      <ExtraDataItem name="GUI/RecentFolderCD" value="/home/lrenner/Downloads"/>
+      <ExtraDataItem name="GUI/RecentListCD" value="/home/lrenner/Downloads/Win10_22H2_English_x64.iso,/home/lrenner/Downloads/OS Images/manjaro-sway-22.0.3-230213-linux515.iso,/home/lrenner/Downloads/OS Images/archlinux-2023.02.01-x86_64.iso"/>
       <ExtraDataItem name="GUI/SuppressMessages" value="remindAboutAutoCapture"/>
       <ExtraDataItem name="GUI/Tools/LastItemsSelected" value="Welcome,Details"/>
     </ExtraData>
     <MachineRegistry>
-      <MachineEntry uuid="{ec9146da-e2b0-44fd-be1f-6a0ed1ee9853}" src="/home/lrenner/VirtualBox VMs/Arch Linux/Arch Linux.vbox"/>
-      <MachineEntry uuid="{272f72a1-02a7-48d5-86e4-45d3a2ba8357}" src="/home/lrenner/VirtualBox VMs/Manjaro/Manjaro.vbox"/>
+      <MachineEntry uuid="{86475d87-fd1f-4f44-8b98-f7b3a8dd1d14}" src="/home/lrenner/VirtualBox VMs/Windows 10/Windows 10.vbox"/>
     </MachineRegistry>
     <NetserviceRegistry>
       <DHCPServers>

@@ -71,7 +71,7 @@ noremap l n
 noremap L N
 
 " sets leader key, which can be used to run more shortcuts
-let mapleader ='.'
+let mapleader ='z'
 " easy access to beginning and end of line
 noremap - $
 
