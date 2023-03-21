@@ -205,7 +205,6 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad xkb_layout us(dvora
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -269,9 +268,19 @@ default_border pixel 2
 
 # class                 border  backgr. text    indicator 
 client.focused          #bd93f9 #bd93f9 #f8f8f2 #ff79c6   
-client.focused_inactive #6272a4 #6272a4 #f8f8f2 #484e50   
-client.unfocused        #6272a4 #6272a4 #f8f8f2 #292d2e   
-client.urgent           #2f343a #900000 #f8f8f2 #900000   
+client.focused_inactive #6272a4 #6272a4 #f8f8f2 #6272a4
+client.unfocused        #6272a4 #6272a4 #f8f8f2 #6272a4
+client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555
 
+# Custom fuzzel scripts
+bindsym $mod+Shift+w exec ~/.config/fuzzel/wifi-selector.sh
+bindsym $mod+space exec ~/.config/fuzzel/web-search.sh
+
+# Bluetooth
+bindsym $mod+b exec blueman-manager
+
+for_window [app_id="blueman-manager"] floating enable
 exec $term
 include /etc/sway/config.d/*
+
+focus_on_window_activation focus

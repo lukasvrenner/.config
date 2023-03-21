@@ -15,7 +15,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Auto-pairs brackets and parentheses
-Plug 'jiangmiao/auto-pairs'
 
 " Git integration
 Plug 'airblade/vim-gitgutter'
