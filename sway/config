@@ -279,6 +279,9 @@ bindsym $mod+space exec ~/.config/fuzzel/web-search.sh
 # Bluetooth
 bindsym $mod+b exec blueman-manager
 
+# Screenshots
+bindsym Print exec grim -g "$(slurp -d)" - | swappy -f -
+
 for_window [app_id="blueman-manager"] floating enable
 exec $term
 include /etc/sway/config.d/*
