@@ -57,8 +57,6 @@ set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
 set formatoptions-=ro
 autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-" set spell                 " enable spell check (may need to download language package)
-" set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 
 " dvorak remap
@@ -66,11 +64,11 @@ noremap h h
 noremap t j
 noremap n k
 noremap s l
-noremap l n
-noremap L N
+noremap k n
+noremap K N
 
 " sets leader key, which can be used to run more shortcuts
-let mapleader ='z'
+let mapleader ='l'
 " easy access to beginning and end of line
 noremap - $
 
@@ -78,8 +76,15 @@ noremap - $
 noremap <C-d> <C-d>zz
 noremap <C-u> <C-u>zz
 
+
+
 noremap <Leader>o o<Esc>
 noremap <Leader>O O<Esc>
+
+
+
+
+
 colorscheme dracula
 
 let g:NERDCreateDefaultMappings = 1
@@ -133,17 +138,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
 
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')

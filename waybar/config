@@ -11,7 +11,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio","backlight", "network", "cpu",  "keyboard-state", "sway/language", "battery", "battery#bat2", "tray"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio","backlight", "network", "cpu",  "keyboard-state", "sway/language", "battery", "battery#bat2", "tray", "custom/power-menu"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -169,6 +169,10 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/power-menu": {
+        "on-click": "~/bin/fuzzel/power-menu.sh",
+        "format": "⏻"
     }
 }
 
