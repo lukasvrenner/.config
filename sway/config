@@ -20,7 +20,7 @@ set $term xfce4-terminal
 set $menu dmenu_path | fuzzel --icon-theme=Dracula| xargs swaymsg exec --
 
 # lockscreen
-set $lock ~/bin/swaylock.sh
+set $lock ~/bin/swaylock/swaylock.sh
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)

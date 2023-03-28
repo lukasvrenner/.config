@@ -26,7 +26,7 @@
         "sysPrefix": "/usr",
         "fileHash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b"
       },
-      "expiry": 1679625333974
+      "expiry": 1680058450302
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -51,7 +51,7 @@
         "sysPrefix": "/usr",
         "fileHash": "667720a2ce4c55ec142992cc6a23f275edd4f5fb8342e3e16b8044dafda1330e8200ee9d03b35c520ce6a8257160a61ce7c874a2521a1c8262b2dbfd213eec80"
       },
-      "expiry": 1679625333982
+      "expiry": 1680058450310
     },
     "/usr/bin/python3.11.v3": {
       "data": {
@@ -76,7 +76,7 @@
         "sysPrefix": "/usr",
         "fileHash": "779cd18575d05a08cf8f248df4122d347a100168b1d00321fadb9d67cde040c5040970911b66e4b26ca2d417b6b8929f3c26c11691a0f2d46539154d5515f5fd"
       },
-      "expiry": 1679625333981
+      "expiry": 1680058450308
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -101,7 +101,7 @@
         "sysPrefix": "/usr",
         "fileHash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b"
       },
-      "expiry": 1679625333984
+      "expiry": 1680037012790
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
@@ -197,7 +197,7 @@
         "sysPrefix": "/usr",
         "fileHash": "779cd18575d05a08cf8f248df4122d347a100168b1d00321fadb9d67cde040c5040970911b66e4b26ca2d417b6b8929f3c26c11691a0f2d46539154d5515f5fd"
       },
-      "expiry": 1679625334084
+      "expiry": 1680058450341
     },
     "/bin/python3.v3": {
       "data": {
@@ -222,7 +222,7 @@
         "sysPrefix": "/usr",
         "fileHash": "667720a2ce4c55ec142992cc6a23f275edd4f5fb8342e3e16b8044dafda1330e8200ee9d03b35c520ce6a8257160a61ce7c874a2521a1c8262b2dbfd213eec80"
       },
-      "expiry": 1679625333972
+      "expiry": 1680058450336
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -455,8 +455,7 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b",
-      "type": "Unknown",
-      "cachedEntry": true
+      "type": "Unknown"
     },
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
@@ -486,14 +485,14 @@
         "displayName": "Python 3.11.2 64-bit",
         "hash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b-1a6958e741f14dc4230f550a35d1e85c"
       },
-      "expiry": 1679625334137
+      "expiry": 1680058450449
     },
     "/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.11.2 64-bit",
         "hash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b-90669aa22b6f5f62cddbae0d0cbdfcee"
       },
-      "expiry": 1679452221388
+      "expiry": 1680037012736
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -517,7 +516,6 @@
       "sysPrefix": "/usr",
       "fileHash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.11.2 64-bit"
     },
     "/usr/bin/python.interpreter.Details.v7": {
@@ -545,12 +543,10 @@
           "sysPrefix": "/usr",
           "fileHash": "5cbea89d0f21aaaed862035b3c7a3d0814c1ab5b3ab4dcc4d151c5e141f476b081f65fdce65923f57cb29c13e9a387ab1e32776a1cdd880d5ff3f8e75758b95b",
           "type": "Unknown",
-          "cachedEntry": true,
-          "displayName": "Python 3.11.2 64-bit",
-          "__store": true
+          "displayName": "Python 3.11.2 64-bit"
         }
       },
-      "expiry": 1679625334116
+      "expiry": 1680058450479
     },
     "/bin/python.interpreter.Details.v7": {
       "data": {
@@ -580,7 +576,7 @@
           "displayName": "Python 3.11.2 64-bit"
         }
       },
-      "expiry": 1679452221425
+      "expiry": 1680037012771
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
