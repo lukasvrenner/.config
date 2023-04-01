@@ -156,8 +156,9 @@ button:hover {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #ff5555;
-    color: #f8f8f2;
+    background-color: #44475a;
+    color: #ff5555;
+    border-bottom: 3px solid #ff5555;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
