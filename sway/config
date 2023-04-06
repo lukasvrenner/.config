@@ -70,7 +70,7 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
+    # Start launcher
     bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -91,15 +91,15 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     # Custom fuzzel scripts
     bindsym $mod+Shift+w exec ~/bin/fuzzel/wifi-selector.sh
     bindsym $mod+space exec ~/bin/fuzzel/web-search.sh
-    
+
     # Exit 
     bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
-    
+
     # Bluetooth
     bindsym $mod+b exec blueman-manager
-    
+
     # Screenshots
-    bindsym Print exec grim -g "$(slurp -d)" - | swappy -f -
+    bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
 
 
 
@@ -119,8 +119,6 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
 	# Notifications
 	exec mako
 
-	# Do-not-disturb:
-	bindsym $mod+m exec ~/.config/mako/do-not-disturb.sh
 
 # Moving around:
     # Move your focus around
