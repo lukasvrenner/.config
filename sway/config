@@ -53,15 +53,19 @@ output * bg ~/wallpaper/second-collection/soft-waves/dracula-soft-waves-44475a.p
 #       middle_emulation enabled
 #   }
 #
+# sets dvorak keyboard layout
 input 1118:2092:Microsoft_Microsoft_Ergonomic_Keyboard xkb_layout us(dvorak)
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     xkb_layout us(dvorak)
-    xkb_options altwin:swap_lalt_lwin
+    # swap alt and win for mac keyboard
+    xkb_options altwin:swap_lalt_lwin 
 }
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 
+# Hide mouse cursor after a period of inactivity.
+seat seat0 hide_cursor 3000
 
 ### Key bindings:
     # Start a terminal
@@ -289,3 +293,5 @@ exec $term
 include /etc/sway/config.d/*
 
 focus_on_window_activation focus
+
+
