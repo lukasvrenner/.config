@@ -1,0 +1,14 @@
+color=#282a36
+inside-ver-color=#44475a
+ring-ver-color=#6272a4
+inside-color=#44475a
+ring-color=#6272a4
+ring-wrong-color=#ff5555
+inside-wrong-color=#44475a
+inside-clear-color=#ff79c6
+ring-clear-color=#ffb86c
+indicator-idle-visible
+bs-hl-color=#ffb86c
+line-uses-ring
+key-hl-color=#ff79c6
+separator-color=#44475a
