@@ -10,4 +10,9 @@
   <property name="misc-text-beside-icons" type="bool" value="false"/>
   <property name="shortcuts-icon-emblems" type="bool" value="true"/>
   <property name="tree-icon-emblems" type="bool" value="true"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="50,127,50,50,208,50,50,71,50,66"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
+  <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
 </channel>
