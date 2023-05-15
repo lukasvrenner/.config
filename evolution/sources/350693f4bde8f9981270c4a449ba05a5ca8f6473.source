@@ -1,0 +1,23 @@
+[Data Source]
+DisplayName=lukasvrenner@icloud.com
+Enabled=true
+Parent=a9ac9f89e804d4831324f02a04713988ffc5872d
+
+[Authentication]
+Host=smtp.mail.me.com
+Method=PLAIN
+Port=587
+ProxyUid=system-proxy
+RememberPassword=true
+User=lukasvrenner@icloud.com
+CredentialName=
+IsExternal=false
+
+[Security]
+Method=starttls-on-standard-port
+
+[Mail Transport]
+BackendName=smtp
+
+[Smtp Backend]
+ReencodeData=false

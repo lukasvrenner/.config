@@ -37,6 +37,7 @@ BackgroundDarkness=1.000000
 ColorPalette=rgb(0,0,0);rgb(255,85,85);rgb(80,250,123);rgb(255,184,108);rgb(98,114,164);rgb(255,121,198);rgb(139,233,253);rgb(170,170,170);rgb(68,71,90);rgb(255,85,85);rgb(80,250,123);rgb(241,250,140);rgb(98,114,164);rgb(189,147,249);rgb(139,233,253);rgb(255,255,255)
 ColorSelection=#28282a293636
 ScrollingLines=2000
-FontUseSystem=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+FontName=Monospace 10
+FontUseSystem=TRUE
 

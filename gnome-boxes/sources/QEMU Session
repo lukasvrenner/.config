@@ -4,5 +4,3 @@ type=libvirt
 uri=qemu+unix:///session
 save-on-quit=true
 
-[display fd1fadfa-a961-4457-aadb-ad12efc16393]
-access-total-time=31
