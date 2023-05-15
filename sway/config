@@ -12,15 +12,15 @@ set $down t
 set $up n 
 set $right s
 
-# Your preferred terminal emulator
 set $term xfce4-terminal
+set $mail evolution
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original that the command was run on.
 set $menu dmenu_path | fuzzel --icon-theme=Dracula| xargs swaymsg exec --
 
 # lockscreen
-set $lock ~/bin/swaylock/swaylock.sh
+set $lock swaylock
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -33,10 +33,10 @@ output * bg ~/wallpaper/second-collection/soft-waves/dracula-soft-waves-44475a.p
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-#exec swayidle -w \
-    #timeout 300 '$lock' \
-    #timeout 400 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    #before-sleep '$lock'
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 400 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 100 seconds, and turn your screens back on when
@@ -91,10 +91,11 @@ seat seat0 hide_cursor 3000
 	# Restart
 	bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
 
+    # Window Switcher
+    bindsym $mod+Tab exec ~/bin/fuzzel/window-switcher.sh
 
-    # Custom fuzzel scripts
+    # Wifi selector
     bindsym $mod+Shift+w exec ~/bin/fuzzel/wifi-selector.sh
-    bindsym $mod+space exec ~/bin/fuzzel/web-search.sh
 
     # Exit 
     bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
@@ -104,6 +105,7 @@ seat seat0 hide_cursor 3000
 
     # Screenshots
     bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
+    #bindsym $mod+c exec pkill wf-recorder 
 
 
 
@@ -120,8 +122,6 @@ seat seat0 hide_cursor 3000
 	output LVDS-1 pos 0 0
 	output HDMI-A-1 pos -280 -1050
 
-	# Notifications
-	exec mako
 
 
 # Moving around:
@@ -146,9 +146,19 @@ seat seat0 hide_cursor 3000
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
-# Workspaces:
 
+    # Move workspcaces around
+    bindsym $mod+Ctrl+$left move workspace to output left
+    bindsym $mod+Ctrl+$down move workspace to output down
+    bindsym $mod+Ctrl+$up move workspace to output up
+    bindsym $mod+Ctrl+$right move workspace to output right
+
+    bindsym $mod+Ctrl+Left move workspace to output left
+    bindsym $mod+Ctrl+Down move workspace to output down
+    bindsym $mod+Ctrl+Up move workspace to output up
+    bindsym $mod+Ctrl+Right move workspace to output right
+    
+    # Workspaces
     set $ws1 "1"
     set $ws2 "2"
     set $ws3 "3"
@@ -188,17 +198,13 @@ seat seat0 hide_cursor 3000
     workspace_auto_back_and_forth yes
 
 	# Forces Signal to open in workspace 10
-	#assign [class="signal"] 10
 #Volume controls:
 	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Brightness controls
-	# set brightness logarithmically by factor 1.4
-	# .72 is just slightly bigger than 1 / 1.4
-	# the program "light" is needed for this to function
-	bindsym --locked XF86MonBrightnessUp exec light -T 1.4
+	bindsym --locked XF86MonBrightnessUp exec light -T 1.5
 	bindsym --locked XF86MonBrightnessDown exec light -T 0.72
 # Layout stuff:
 
@@ -257,6 +263,7 @@ mode "resize" {
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -290,8 +297,10 @@ client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555
 
 for_window [app_id="blueman-manager"] floating enable
 exec $term
+# notifications
+exec mako
+for_window [title="Signal"] move container to workspace $ws10
 include /etc/sway/config.d/*
 
-focus_on_window_activation focus
 
 
