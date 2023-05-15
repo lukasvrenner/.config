@@ -24,7 +24,7 @@ set $lock swaylock
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/wallpaper/second-collection/soft-waves/dracula-soft-waves-44475a.png fill
+output * bg ~/.config/sway/dracula-soft-waves-44475a.png fill
 #
 # Example configuration:
 #
