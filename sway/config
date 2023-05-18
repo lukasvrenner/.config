@@ -284,14 +284,15 @@ bar {
 }
 
 # Windows:
+font source code pro 10
 gaps inner 5px
 
 default_border pixel 2
 
 # class                 border  backgr. text    indicator 
-client.focused          #bd93f9 #bd93f9 #f8f8f2 #ff79c6   
-client.focused_inactive #6272a4 #6272a4 #f8f8f2 #6272a4
-client.unfocused        #6272a4 #6272a4 #f8f8f2 #6272a4
+client.focused          #44475a #bd93f9 #f8f8f2 #ff79c6   
+client.focused_inactive #44475a #6272a4 #f8f8f2 #6272a4
+client.unfocused        #44475a #6272a4 #f8f8f2 #6272a4
 client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555
 
 
