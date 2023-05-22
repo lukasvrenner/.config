@@ -68,18 +68,14 @@ noremap s l
 noremap k n
 noremap K N
 
+
 " sets leader key, which can be used to run more shortcuts
 let mapleader ='l'
 " easy access to beginning and end of line
 noremap - $
 
-" centers cursor on page up or down
-noremap <C-d> <C-d>zz
-noremap <C-u> <C-u>zz
 
-
-
-noremap <Leader>o o<Esc>
+noremap <Enter> o<Esc>
 noremap <Leader>O O<Esc>
 
 
@@ -236,4 +232,3 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-autocmd BufWinLeave * !printf "\e[5 q"
