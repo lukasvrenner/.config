@@ -54,9 +54,8 @@ output * bg ~/Pictures/dracula-soft-waves-44475a.png fill
 #   }
 #
 # sets dvorak keyboard layout
-input 1118:2092:Microsoft_Microsoft_Ergonomic_Keyboard xkb_layout us(dvorak)
+input type:keyboard xkb_layout us(dvorak)
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
-    xkb_layout us(dvorak)
     # swap alt and win for mac keyboard
     xkb_options altwin:swap_lalt_lwin 
 }
