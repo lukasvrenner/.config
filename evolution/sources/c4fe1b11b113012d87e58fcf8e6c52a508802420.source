@@ -1,7 +1,0 @@
-[Data Source]
-DisplayName=Thank you
-Enabled=true
-Parent=
-
-[Mail Signature]
-MimeType=text/html
