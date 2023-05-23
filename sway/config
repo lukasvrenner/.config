@@ -56,14 +56,14 @@ output * bg ~/Pictures/dracula-soft-waves-44475a.png fill
 #
 # sets dvorak keyboard layout
 input type:keyboard {
-    xkb_layout us(dvorak),us
-    xkb_options grp:toggle
-    xkb_options caps:swapescape
+    xkb_layout dvorak,us
+    xkb_options grp:ctrl_space_toggle
+    #xkb_options caps:swapescape
 }
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     # swap alt and win for mac keyboard
-    xkb_options altwin:swap_lalt_lwin 
-    xkb_options caps:swapescape
+    xkb_options altwin:swap_lalt_lwin,grp:ctrl_space_toggle
+    #xkb_options caps:swapescape
 }
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
