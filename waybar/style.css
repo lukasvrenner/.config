@@ -145,7 +145,6 @@ button:hover {
 #battery {
     background-color: #44475a;
     color: #f8f8f2;
-    margin-right: 0px;
 }
 
 #battery.charging, #battery.plugged {
@@ -318,5 +317,5 @@ label:focus {
 
 
 #custom-power-menu {
-    margin-right: 7px;
+    margin-right: 5px;
 }
