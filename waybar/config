@@ -11,7 +11,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media", "sway/window"],
     "modules-center": [],
-    "modules-right": ["mpd", "tray", "idle_inhibitor", "pulseaudio","backlight", "network", "cpu",  "keyboard-state",  "sway/language", "battery", "battery#bat2", "clock", "custom/power-menu"],
+    "modules-right": ["mpd", "tray", "idle_inhibitor", "pulseaudio","backlight", "cpu",  "keyboard-state",  "sway/language", "battery", "battery#bat2", "clock", "custom/power-menu"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
