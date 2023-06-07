@@ -455,7 +455,8 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "710d0552bf9677a5632e22ab9485eb756939848f49653a56d14b4d00ae3e3ed9da84c9d36b7348668ab5e4604fe83e69db77f021a21499ba15cf9b903622db7f",
-      "type": "Unknown"
+      "type": "Unknown",
+      "cachedEntry": true
     },
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
@@ -517,6 +518,7 @@
       "sysPrefix": "/usr",
       "fileHash": "710d0552bf9677a5632e22ab9485eb756939848f49653a56d14b4d00ae3e3ed9da84c9d36b7348668ab5e4604fe83e69db77f021a21499ba15cf9b903622db7f",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.11.3 64-bit"
     },
     "/usr/bin/python.interpreter.Details.v7": {
@@ -678,7 +680,7 @@
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
   },
   "coc-rust-analyzer|global": {
-    "release": "2023-04-04"
+    "release": "2023-05-29"
   },
   "coc-python|/home/lrenner": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
