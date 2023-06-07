@@ -1,1 +1,4 @@
 @import 'colors.css';
+VteTerminal, vte-terminal {
+    padding-left: 2px;
+}
