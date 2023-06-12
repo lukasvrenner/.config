@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "coc-python": ">=1.2.13",
-    "coc-css": ">=2.0.0",
-    "coc-sh": ">=1.1.0",
-    "coc-rust-analyzer": ">=0.72.1"
-  }
-}
