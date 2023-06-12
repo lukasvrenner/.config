@@ -26,6 +26,8 @@ require('packer').startup(function(use)
     }
     use 'williamboman/mason-lspconfig.nvim'
 
+    use 'numToStr/Comment.nvim'
+
 
 end)
 
@@ -53,6 +55,7 @@ map("", "<enter>", "o<esc>")
 
 -- Options
 vim.o.number = true -- show line numbers
+vim.o.scl = 'no'
 vim.o.relativenumber = true -- show relative line numbers
 vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops
@@ -63,19 +66,15 @@ vim.o.autoindent = true -- indent new lines the same amount as previous line
 vim.cmd[[set clipboard=unnamedplus]] -- use system clipboard
 vim.o.cursorline = true -- highlight current line
 vim.cmd[[autocmd FileType * set formatoptions-=ro]] -- disables autocommenting on new lines
+vim.o.updatetime = 250
 
 
 vim.cmd[[colorscheme dracula]]
 
 require('nvim-autopairs').setup()
 
-require('nvim-treesitter.configs').setup {
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-}
+
+require('Comment').setup()
 
 require('mason').setup {}
 require('mason-lspconfig').setup()
@@ -102,7 +101,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = {'rust_analyzer', 'pyright' }
+local servers = {'rust_analyzer', 'pyright', 'cssls', 'bashls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -164,5 +163,13 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+}
+
+require('nvim-treesitter.configs').setup {
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 }
 
