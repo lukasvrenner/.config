@@ -120,6 +120,8 @@ lspconfig.lua_ls.setup {
     },
   },
 }
+
+
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
