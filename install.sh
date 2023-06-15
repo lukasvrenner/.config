@@ -36,3 +36,6 @@ wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
 unzip Dracula.zip -d /usr/share/themes
 gsettings set org.gnome.desktop.interface icon-theme "Dracula"
 rm Dracula.zip
+
+dnf install breeze-cursor-theme
+gsettings set org.gnome.desktop.interface breeze-cursor-theme
