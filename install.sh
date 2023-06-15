@@ -15,7 +15,7 @@ sudo dnf install zsh
 chsh -s $(which zsh)
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"  #oh-my-zsh
 #create symlinks for zsh themeing and customization
-rm .zshrc
+rm ~/.zshrc
 ln -s ~/.config/oh-my-zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -s ~/.config/oh-my-zsh/lib ~/.oh-my-zsh/themes/lib
 ln -s ~/.config/oh-my-zsh/.zshrc ~/.zshrc
