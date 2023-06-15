@@ -1,22 +1,25 @@
 #!/bin/sh
 
-sudo dnf install sway
-sudo dnf install waybar
-sudo dnf install xfce4-terminal
-sudo dnf install fuzzel
-sudo dnf install blueman
-sudo dnf install network-manager-applet
-sudo dnf install trash-cli
+dnf install sway
+dnf install waybar
+dnf install xfce4-terminal
+dnf install fuzzel
+dnf install blueman
+dnf install network-manager-applet
+dnf install trash-cli
 
 
 #zsh
-sudo dnf install zsh
+dnf install zsh
 chsh -s $(which zsh)
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"  #oh-my-zsh
-#add oh-my-zsh theme stuff here
+#create symlinks for zsh themeing and customization
+ln -s ~/.config/oh-my-zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+ln -s ~/.config/oh-my-zsh/lib ~/.oh-my-zsh/themes/lib
+ln -s ~/.config/oh-my-zsh/.zshrc ~/.zshrc
 
 #neovim
-sudo dnf install neovim
+dnf install neovim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
