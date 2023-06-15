@@ -104,6 +104,7 @@ seat seat0 hide_cursor 3000
     bindsym $mod+Space exec ~/bin/fuzzel/window-switcher.sh
 
     # Wifi selector
+    exec nm-applet
     bindsym $mod+Shift+w exec nm-connection-editor
 
     # Exit 
@@ -305,7 +306,7 @@ client.focused_inactive #44475a #6272a4 #f8f8f2 #6272a4
 client.unfocused        #44475a #6272a4 #f8f8f2 #6272a4
 client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555
 
-
+# swaymsg -t get_tree
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 exec $term
@@ -313,6 +314,3 @@ exec $term
 exec mako
 for_window [title="Signal"] move container to workspace $ws10
 include /etc/sway/config.d/*
-
-
-
