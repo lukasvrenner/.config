@@ -7,6 +7,7 @@ dnf install fuzzel
 dnf install blueman
 dnf install network-manager-applet
 dnf install trash-cli
+dnf install mako
 
 
 #zsh
