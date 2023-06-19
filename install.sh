@@ -1,5 +1,12 @@
 #!/bin/sh
 
+#rpm-fusion repositories
+#only works in bash
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 sudo dnf install sway
 sudo dnf install waybar
 sudo dnf install xfce4-terminal
