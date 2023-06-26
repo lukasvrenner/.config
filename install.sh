@@ -9,7 +9,7 @@ sudo dnf install \
 
 sudo dnf install sway
 sudo dnf install waybar
-sudo dnf install xfce4-terminal
+sudo dnf install foot
 sudo dnf install fuzzel
 sudo dnf install blueman
 sudo dnf install network-manager-applet
