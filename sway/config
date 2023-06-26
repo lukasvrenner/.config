@@ -13,7 +13,7 @@ set $down t
 set $up n 
 set $right s
 
-set $term xfce4-terminal
+set $term foot
 set $mail evolution
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -309,6 +309,7 @@ client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555
 # swaymsg -t get_tree
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 exec $term
 # notifications
 exec mako
