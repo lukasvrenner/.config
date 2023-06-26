@@ -47,8 +47,12 @@ map("", "n", "k")
 map("", "s", "l")
 map("", "-", "$")
 
+-- replaces n with k for next result
 map("", "k", 'n')
 map("", "K", 'N')
+
+map("", "j", "t")
+map("", "J", "T")
 
 vim.g.mapleader = 'l'
 map("", "<enter>", "o<esc>")

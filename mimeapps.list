@@ -25,3 +25,4 @@ video/quicktime=org.videolan.VLC.desktop;
 image/png=imv.desktop;
 text/x-python=nvim.desktop;
 inode/directory=org.videolan.VLC-opendvd.desktop;
+text/markdown=nvim.desktop;
