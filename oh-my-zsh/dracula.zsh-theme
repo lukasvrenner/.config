@@ -108,7 +108,7 @@ dracula_context() {
 	fi
 }
 
-PROMPT+='%F{blue}%B$(dracula_context)'
+PROMPT+='%F{magenta}%B$(dracula_context)'
 # }}}
 
 # Directory segment {{{
@@ -120,7 +120,7 @@ dracula_directory() {
 	fi
 }
 
-PROMPT+='%F{magenta}%B$(dracula_directory)'
+PROMPT+='%F{blue}%B$(dracula_directory)'
 # }}}
 
 # Custom variable {{{
@@ -242,6 +242,6 @@ PROMPT+='%(1V:%F{yellow}:%(?:%F{yellow}:%F{red}))%B$(dracula_arrow start)'
 # Ensure effects are reset
 PROMPT+='%f%b'
 #PROMPT+=`printf "\e[0 q"` # ensures that cursor is i-beam 
-LS_COLORS="di=1;35"
+#LS_COLORS="di=1;35"
 
 
