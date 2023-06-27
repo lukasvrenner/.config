@@ -36,9 +36,6 @@ sudo unzip Dracula.zip -d /usr/share/themes
 gsettings set org.gnome.desktop.interface icon-theme "Dracula"
 rm Dracula.zip
 
-sudo dnf install breeze-cursor-theme
-gsettings set org.gnome.desktop.interface breeze-cursor-theme
-
 #zsh
 sudo dnf install zsh
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"  #oh-my-zsh
