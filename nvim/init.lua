@@ -71,7 +71,13 @@ vim.cmd[[set clipboard=unnamedplus]] -- use system clipboard
 vim.o.cursorline = true -- highlight current line
 vim.cmd[[autocmd FileType * set formatoptions-=ro]] -- disables autocommenting on new lines
 vim.o.updatetime = 250
+vim.o.ignorecase = true -- case insensitive search
 
+-- disable semantic highlighting
+-- needs to be put in a ColorScheme autocommand to work
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    vim.api.nvim_set_hl(0, group, {})
+end
 
 vim.cmd[[colorscheme dracula]]
 
