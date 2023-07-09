@@ -14,7 +14,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
 
 # Window Switcher
-bindsym $mod+Space exec ~/bin/fuzzel/window-switcher.sh
+bindsym $mod+c exec ~/bin/fuzzel/window-switcher.sh
 
 # Exit 
 bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
@@ -158,3 +158,4 @@ bindsym $mod+r mode "resize"
 
 bindsym f12 exec ~/bin/fuzzel/keybindings.sh
 bindsym $mod+Shift+w exec ~/bin/fuzzel/wifi-selector.sh
+bindsym $mod+Space exec ~/bin/fuzzel/web-search.sh
