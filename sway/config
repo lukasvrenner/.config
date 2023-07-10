@@ -69,6 +69,9 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     xkb_options grp:ctrl_space_toggle
     #xkb_options caps:swapescape
 }
+input type:touchpad {
+natural_scroll enabled
+}
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
