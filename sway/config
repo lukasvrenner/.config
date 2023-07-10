@@ -163,6 +163,5 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 exec $term
 # notifications
 exec mako
-for_window [title="Signal"] move container to workspace $ws10
 include /etc/sway/config.d/*
 include keybindings
