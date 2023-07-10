@@ -5,7 +5,8 @@ home.homeDirectory = "/home/lukas";
 home.stateVersion = "23.05";
 programs.home-manager.enable = true;
  
-home.packages = [
+home.packages = with pkgs; [
+nodejs
 ];
  
 programs.zsh = {
@@ -26,10 +27,22 @@ programs.zsh = {
 	};
  
 };
+
+gtk = {
+    enable = true;
+    theme = {
+        name = "Dracula";
+        package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+        name = "Dracula";
+        package = pkgs.dracula-icon-theme;
+    };
+    cursorTheme = {
+    name = "Dracula-cursors";
+    package = pkgs.dracula-theme;
+    };
+};
  
- 
-gtk.theme.name = "Dracula";
-gtk.iconTheme = "Dracula";
-gtk.cursorTheme = "Dracula";
 }
  
