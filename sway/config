@@ -79,69 +79,51 @@ natural_scroll enabled
 # Hide mouse cursor after a period of inactivity.
 seat seat0 hide_cursor 3000
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Screen Lock
+# enable or disable screen on lid-close/open
+bindswitch lid:on output LVDS-1 disable; exec $lock
+bindswitch --locked lid:off output LVDS-1 enable
 
 
+# Monitor positions
+output LVDS-1 pos 0 0
+output HDMI-A-1 pos -280 -1050
 
 
-    exec nm-applet
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 
-
-
-
-
-    # Screen Lock
-	# enable or disable screen on lid-close/open
-    bindswitch lid:on output LVDS-1 disable; exec $lock
-	bindswitch --locked lid:off output LVDS-1 enable
-    
-
-
-
-
-	# Monitor positions
-	output LVDS-1 pos 0 0
-	output HDMI-A-1 pos -280 -1050
-
-
-
-    
-    # Workspaces
-    set $ws1 "1"
-    set $ws2 "2"
-    set $ws3 "3"
-    set $ws4 "4"
-    set $ws5 "5"
-    set $ws6 "6"
-    set $ws7 "7"
-    set $ws8 "8"
-    set $ws9 "9"
-    set $ws10 "10"
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-
-    # switches to previously focused workspace on repeat of focus
-    workspace_auto_back_and_forth yes
+# switches to previously focused workspace on repeat of focus
+workspace_auto_back_and_forth yes
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    swaybar_command waybar
+    position top
 
-	swaybar_command waybar
-     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-
-
-
+# When the status_command prints a new line to stdout, swaybar updates.
+# The default just shows the current date and time.
 }
 
 # Windows:
