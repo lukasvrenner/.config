@@ -145,5 +145,6 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 exec $term
 # notifications
 exec mako
+exec trash-empty 30
 include /etc/sway/config.d/*
 include keybindings
