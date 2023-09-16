@@ -1,0 +1,40 @@
+font=source code pro:size=10
+pad=2x1 # shifts text to the left for increased legibility
+app-id=foot # sets app-id for identification by window-manager
+bold-text-in-bright=no
+dpi-aware=no
+
+[colors]
+background=282a36
+foreground=f8f8f2
+
+regular0=282a36  #black
+regular1=ff5555  #red
+regular2=50fa7b  #green
+regular3=F1FA8C  #yellow
+regular4=6272a4  #blue
+regular5=BD93F9  #magenta
+regular6=8BE9FD  #cyan
+regular7=44475A  #white
+
+bright0=44475A  # dark grey
+bright1=FF5555  # bright red
+bright2=50FA7B  # bright green
+bright3=FFB86C  # bright yellow
+bright4=6272A4  # bright blue
+bright5=FF79C6  # bright magenta
+bright6=8BE9FD  # bright cyan
+bright7=F8F8F2  # bright white
+
+urls=ff79c6  # magenta
+
+[scrollback]
+lines=1000
+
+[cursor]
+style=block
+blink=no
+beam-thickness=1.5
+
+[mouse]
+hide-when-typing=yes

@@ -1,0 +1,29 @@
+[Default Applications]
+x-scheme-handler/http=firefox.desktop
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-content/video-dvd=org.videolan.VLC-opendvd.desktop
+application/octet-stream=org.videolan.VLC.desktop
+audio/x-wav=org.videolan.VLC.desktop
+text/x-python=nvim.desktop
+text/plain=nvim.desktop
+inode/directory=org.videolan.VLC-opendvd.desktop
+
+[Added Associations]
+x-scheme-handler/http=org.gnome.Epiphany.desktop;firefox.desktop;
+text/html=org.gnome.Epiphany.desktop;firefox.desktop;
+application/xhtml+xml=org.gnome.Epiphany.desktop;firefox.desktop;
+x-scheme-handler/https=org.gnome.Epiphany.desktop;firefox.desktop;
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-content/video-dvd=org.videolan.VLC-opendvd.desktop;
+application/octet-stream=org.videolan.VLC.desktop;
+audio/x-wav=org.videolan.VLC.desktop;
+application/pdf=firefox.desktop;
+video/mp4=org.videolan.VLC.desktop;no.mifi.losslesscut.desktop;
+video/quicktime=org.videolan.VLC.desktop;
+image/png=imv.desktop;
+text/x-python=nvim.desktop;
+inode/directory=org.videolan.VLC-opendvd.desktop;
+text/markdown=nvim.desktop;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Unread" text="Unread" description="Unread" type="vfolder" id="rnwfdtv" sortColumn="time" matchType="any" unreadOnly="false" collapsed="true">
+      <outline type="rule" text="Read status" rule="unread" value="" additive="true"/>
+    </outline>
+    <outline title="Important" text="Important" description="Important" type="vfolder" id="xfumbks" sortColumn="time" matchType="any" unreadOnly="false" collapsed="true">
+      <outline type="rule" text="Flag status" rule="flagged" value="" additive="true"/>
+    </outline>
+    <outline title="FOSS News" text="FOSS News" description="FOSS News" type="folder" id="hpyvgly" sortColumn="time" expanded="true">
+      <outline title="Planet GNOME" text="Planet GNOME" description="Planet GNOME" type="atom" id="mvrfnmg" sortColumn="time" xmlUrl="https://planet.gnome.org/atom.xml" htmlUrl="https://planet.gnome.org/" updateInterval="-1" collapsed="true"/>
+      <outline title="It's FOSS News" text="It's FOSS News" description="It's FOSS News" type="rss" id="rtfhrbm" sortColumn="time" xmlUrl="https://news.itsfoss.com/latest/rss/" htmlUrl="https://news.itsfoss.com/" updateInterval="-1" collapsed="true"/>
+      <outline title="This Week in GNOME" text="This Week in GNOME" description="This Week in GNOME" type="rss" id="nnibuko" sortColumn="time" xmlUrl="https://thisweek.gnome.org/index.xml" htmlUrl="https://thisweek.gnome.org/" updateInterval="-1" collapsed="true"/>
+    </outline>
+    <outline title="Richard Stallman's Political Notes" text="Richard Stallman's Political Notes" description="Richard Stallman's Political Notes" type="rss" id="cybsxoc" sortColumn="time" xmlUrl="https://stallman.org/rss/rss.xml" htmlUrl="https://stallman.org/archives/polnotes.html" updateInterval="-1" collapsed="true"/>
+    <outline title="xkcd" text="xkcd" description="xkcd" type="atom" id="khxffny" sortColumn="time" xmlUrl="https://xkcd.com/atom.xml" htmlUrl="https://xkcd.com/" updateInterval="-1" collapsed="true"/>
+    <outline title="Slashdot" text="Slashdot" description="Slashdot" type="rss" id="whgmqal" sortColumn="time" xmlUrl="https://rss.slashdot.org/Slashdot/slashdotMain" htmlUrl="https://slashdot.org/" updateInterval="-1" collapsed="true"/>
+    <outline title="BBC News - Home" text="BBC News - Home" description="BBC News - Home" type="rss" id="kndooyc" sortColumn="time" xmlUrl="http://feeds.bbci.co.uk/news/rss.xml?edition=us" htmlUrl="https://www.bbc.co.uk/news/" updateInterval="-1" collapsed="true"/>
+    <outline title="Science" text="Science" description="Science" type="rss" id="yqplwvl" sortColumn="time" xmlUrl="https://www.sciencenews.org/feed" htmlUrl="https://www.sciencenews.org" updateInterval="-1" collapsed="true"/>
+  </body>
+</opml>
