@@ -6,6 +6,7 @@
 # Mod1 is Alt key. Use Mod4 for super
 # keep in mind that alt and super are swapped
 set $mod Mod4
+# xwayland disable
 
 # Home row direction keys, like vim
 set $left h
@@ -59,7 +60,7 @@ input type:touchpad {
 # sets dvorak keyboard layout
 input type:keyboard {
     xkb_layout dvorak,us
-    repeat_rate 025
+    repeat_rate 020
     repeat_delay 200
     # swap super and alt; use Ctrl+Space to toggle layout
     xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
@@ -78,7 +79,7 @@ natural_scroll enabled
 
 
 # Hide mouse cursor after a period of inactivity.
-seat seat0 hide_cursor 3000
+seat seat0 hide_cursor when-typing enable
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -89,8 +90,7 @@ floating_modifier $mod normal
 
 # Screen Lock
 # enable or disable screen on lid-close/open
-bindswitch --locked lid:on output LVDS-1 disable; exec $lock
-bindswitch --locked lid:off output LVDS-1 enable
+bindswitch --locked lid:on exec systemctl suspend
 
 
 # Monitor positions
@@ -350,7 +350,7 @@ bindsym Ctrl+Shift+Backspace exec killall -s SIGINT wf-recorder
 
 exec $term
 # notifications
-exec mako
-exec trash-empty 30
+# exec mako
+exec trash-empty 30 -f
 include /etc/sway/config.d/*
 # include ~/.config/sway/config.d/*
