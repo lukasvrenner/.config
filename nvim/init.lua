@@ -9,58 +9,40 @@ require('packer').startup(function(use)
     use 'lukas-reineke/indent-blankline.nvim' -- adds indent-lines in blank lines
 
 
-    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-autopairs' -- closes opening brackets and quotes
 
-    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter' --  improves syntax highlighting
 
-    -- use 'neovim/nvim-lspconfig'
-    -- use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    -- use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    --
-    -- use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-    -- use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    --
-    -- use {
-    --     "williamboman/mason.nvim",
-    --     run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-    -- }
-    -- use 'williamboman/mason-lspconfig.nvim'
-    --
-    use 'numToStr/Comment.nvim'
+    use 'neovim/nvim-lspconfig' -- adds lsp support
+    use "williamboman/mason.nvim" -- "package manager" for language servers
+        
+    use 'williamboman/mason-lspconfig.nvim' -- improves support for mason lspconfig
+    use 'numToStr/Comment.nvim' -- allows for commenting vs gc and gcc
     use { "ellisonleao/gruvbox.nvim" } -- gruvbox theme
 
 
 end)
 
--- Functional wrapper for mapping custom keybindings
-	function map(mode, lhs, rhs, opts)
-		local options = { noremap = true }
-		if opts then
-			options = vim.tbl_extend("force", options, opts)
-		end
-		vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 
 -- Dvorak remap
 
-map("", "h", "h")
-map("", "t", "j")
-map("", "n", "k")
-map("", "N", "k")
-map("", "s", "l")
-map("", "S", "L")
-map("", "-", "$")
-map("", "l", "s")
-map("", "L", "S")
-map("", "T", "J")
+vim.keymap.set("", "h", "h")
+vim.keymap.set("", "t", "j")
+vim.keymap.set("", "n", "k")
+vim.keymap.set("", "N", "k")
+vim.keymap.set("", "s", "l")
+vim.keymap.set("", "S", "L")
+vim.keymap.set("", "-", "$")
+vim.keymap.set("", "l", "s")
+vim.keymap.set("", "L", "S")
+vim.keymap.set("", "T", "J")
 
 
 -- replaces n with k for next result
-map("", "k", 'n')
-map("", "K", 'N')
-
-map("", "j", "t")
-map("", "J", "T")
+vim.keymap.set("", "k", 'n')
+vim.keymap.set("", "K", 'N')
+vim.keymap.set("", "j", "t")
+vim.keymap.set("", "J", "T")
 
 vim.g.mapleader = '<space>'
 -- map("", "<enter>", "o<esc>")
@@ -73,10 +55,9 @@ vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops
 vim.o.expandtab = true -- converts tabs to white space
 vim.o.shiftwidth = 4 -- sets width for autoindent
-vim.o.ttyfast = true -- increases scrolling speed in tty
+vim.o.ttyfast = true -- increases scrolling speed
 vim.o.autoindent = true -- indent new lines the same amount as previous line
 vim.cmd[[set clipboard=unnamedplus]] -- use system clipboard
-vim.cmd[[set hls!]]
 vim.o.cursorline = true -- highlight current line
 vim.cmd[[autocmd FileType * set formatoptions-=ro]] -- disables autocommenting on new lines
 vim.o.updatetime = 250
@@ -97,96 +78,58 @@ require('nvim-autopairs').setup()
 -- use gcc to comment in normal mode and gc in visual mode
 require('Comment').setup()
 
--- require('mason').setup {}
--- require('mason-lspconfig').setup()
---
--- -- Add nvim-lspconfig plugin
--- local lspconfig = require 'lspconfig'
--- local on_attach = function(_, bufnr)
---   local attach_opts = { silent = true, buffer = bufnr }
---   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, attach_opts)
---   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, attach_opts)
---   vim.keymap.set('n', 'N', vim.lsp.buf.hover, attach_opts)
---   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, attach_opts)
---   vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, attach_opts)
---   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, attach_opts)
---   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, attach_opts)
---   vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, attach_opts)
---   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, attach_opts)
---   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, attach_opts)
---   -- vim.keymap.set('n', 'so', require('telescope.builtin').lsp_references, attach_opts)
--- end
---
--- -- nvim-cmp supports additional completion capabilities
--- -- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
---
--- -- Enable the following language servers
--- local servers = {'rust_analyzer'}
--- for _, lsp in ipairs(servers) do
---   lspconfig[lsp].setup {
---     on_attach = on_attach,
---     capabilities = capabilities,
---   }
--- end
---
--- lspconfig.lua_ls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   settings = {
---     Lua = {
---       completion = {
---         callSnippet = 'Replace',
---       },
---     },
---   },
--- }
---
---
--- -- nvim-cmp setup
--- local cmp = require 'cmp'
--- local luasnip = require 'luasnip'
---
--- luasnip.config.setup {}
---
--- cmp.setup {
---   snippet = {
---     expand = function(args)
---       luasnip.lsp_expand(args.body)
---     end,
---   },
---   mapping = cmp.mapping.preset.insert {
---     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---     ['<C-f>'] = cmp.mapping.scroll_docs(4),
---     ['<C-Space>'] = cmp.mapping.complete {},
---     ['<CR>'] = cmp.mapping.confirm {
---       behavior = cmp.ConfirmBehavior.Replace,
---       select = true,
---     },
---     ['<Tab>'] = cmp.mapping(function(fallback)
---       if cmp.visible() then
---         cmp.select_next_item()
---       elseif luasnip.expand_or_jumpable() then
---         luasnip.expand_or_jump()
---       else
---         fallback()
---       end
---     end, { 'i', 's' }),
---     ['<S-Tab>'] = cmp.mapping(function(fallback)
---       if cmp.visible() then
---         cmp.select_prev_item()
---       elseif luasnip.jumpable(-1) then
---         luasnip.jump(-1)
---       else
---         fallback()
---       end
---     end, { 'i', 's' }),
---   },
---   sources = {
---     { name = 'nvim_lsp' },
---     { name = 'luasnip' },
---   },
--- }
+require('mason').setup {}
+require('mason-lspconfig').setup()
+
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup {
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+}
+
+
+-- LSP SETUP
+
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    -- vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts) -- goes to declaration
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- goes to definition
+    vim.keymap.set('n', 'N', vim.lsp.buf.hover, opts) -- displays variable/function info
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    -- vim.keymap.set('n', '<space>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, opts)
+    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts) -- rename function or variable
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
+
 
 require('nvim-treesitter.configs').setup {
     auto_install = true,
