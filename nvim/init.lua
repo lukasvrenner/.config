@@ -1,13 +1,13 @@
--- it clone --depth 1 https://github.com/wbthomason/packer.nvim\
+-- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 -- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
--- vim-plug to install plugins
+--vim-plug to install plugins
 require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
 
-    use 'lukas-reineke/indent-blankline.nvim' -- adds indent-lines in blank lines
-
+    -- DO NOT USE INDENT-BLANKLINE AS THEY BREAK BACKWARDS COMP
+    -- ON MAJOR RELEASES
 
     use 'windwp/nvim-autopairs' -- closes opening brackets and quotes
 
@@ -36,9 +36,6 @@ vim.keymap.set("", "-", "$")
 vim.keymap.set("", "l", "s")
 vim.keymap.set("", "L", "S")
 vim.keymap.set("", "T", "J")
-
-
--- replaces n with k for next result
 vim.keymap.set("", "k", 'n')
 vim.keymap.set("", "K", 'N')
 vim.keymap.set("", "j", "t")
@@ -63,6 +60,17 @@ vim.cmd[[autocmd FileType * set formatoptions-=ro]] -- disables autocommenting o
 vim.o.updatetime = 250
 vim.o.ignorecase = true -- case insensitive search
 -- vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
+
+require('nvim-treesitter.configs').setup {
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+    -- indent = {
+    --     enable = true
+    -- }
+}
 
 -- disable semantic highlighting
 -- needs to be put in a ColorScheme autocommand to work
@@ -131,14 +139,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
-require('nvim-treesitter.configs').setup {
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    -- indent = {
-    --     enable = true
-    -- }
-}
+
+
 
