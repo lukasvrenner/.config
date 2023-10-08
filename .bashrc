@@ -26,9 +26,8 @@ fi
 
 unset rc
 
-export EDITOR=nvim
-export VISUAL=nvim
 
+# allows for Ctrl-Shift-N to open in current directiory
 osc7_cwd() {
     local strlen=${#PWD}
     local encoded=""
@@ -45,5 +44,21 @@ osc7_cwd() {
 }
 PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd
 
+
+###############
+#   ALIASES   #
+###############
 alias s=ls
-alias nnn='nnn -e'
+alias n=nvim
+
+
+
+#############################
+#   ENVIRONMENT VARIABLES   #
+#############################
+
+# text editor
+export EDITOR=nvim
+export VISUAL=nvim
+set -o vi
+
