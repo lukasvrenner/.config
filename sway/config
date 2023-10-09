@@ -10,9 +10,9 @@ set $mod Mod4
 
 # Home row direction keys, like vim
 set $left h
-set $down j
-set $up k 
-set $right l
+set $down t
+set $up n 
+set $right s
 
 set $term foot
 # Your preferred application launcher
@@ -359,3 +359,4 @@ exec $term
 exec trash-empty 30 -f
 include /etc/sway/config.d/*
 # include ~/.config/sway/config.d/*
+

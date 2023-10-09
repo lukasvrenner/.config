@@ -4,10 +4,7 @@
 --vim-plug to install plugins
 require('packer').startup(function(use)
 
-    use 'wbthomason/packer.nvim'
-
-    -- DO NOT USE INDENT-BLANKLINE AS THEY BREAK BACKWARDS COMP
-    -- ON MAJOR RELEASES
+    use 'wbthomason/packer.nvim' -- plugin manager
 
     use 'windwp/nvim-autopairs' -- closes opening brackets and quotes
 
@@ -26,27 +23,27 @@ end)
 
 -- Dvorak remap
 
--- vim.keymap.set("", "h", "h")
--- vim.keymap.set("", "t", "j")
--- vim.keymap.set("", "n", "k")
--- vim.keymap.set("", "N", "k")
--- vim.keymap.set("", "s", "l")
--- vim.keymap.set("", "S", "L")
--- vim.keymap.set("", "-", "$")
--- vim.keymap.set("", "l", "s")
--- vim.keymap.set("", "L", "S")
--- vim.keymap.set("", "T", "J")
--- vim.keymap.set("", "k", 'n')
--- vim.keymap.set("", "K", 'N')
--- vim.keymap.set("", "j", "t")
--- vim.keymap.set("", "J", "T")
+vim.keymap.set("", "h", "h")
+vim.keymap.set("", "t", "j")
+vim.keymap.set("", "n", "k")
+vim.keymap.set("", "N", "k")
+vim.keymap.set("", "s", "l")
+vim.keymap.set("", "S", "L")
+vim.keymap.set("", "-", "$")
+vim.keymap.set("", "l", "s")
+vim.keymap.set("", "L", "S")
+vim.keymap.set("", "T", "J")
+vim.keymap.set("", "k", 'n')
+vim.keymap.set("", "K", 'N')
+vim.keymap.set("", "j", "t")
+vim.keymap.set("", "J", "T")
 
 vim.g.mapleader = '<space>'
 -- map("", "<enter>", "o<esc>")
 
 -- Options
 vim.o.number = true -- show line numbers
-vim.o.scl = 'no'
+vim.o.scl = 'yes' -- hide/show sign collumn
 vim.o.relativenumber = true -- show relative line numbers
 vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops
@@ -72,11 +69,6 @@ require('nvim-treesitter.configs').setup {
     -- }
 }
 
--- disable semantic highlighting
--- needs to be put in a ColorScheme autocommand to work
-for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-    vim.api.nvim_set_hl(0, group, {})
-end
 
 vim.cmd[[colorscheme gruvbox]]
 
