@@ -24,4 +24,3 @@ vim.cmd[[colorscheme gruvbox]]
 vim.opt.swapfile = false
 vim.termguicolors = true
 
-
