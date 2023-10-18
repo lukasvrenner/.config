@@ -49,6 +49,7 @@ PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }osc7_cwd
 #   ALIASES   #
 ###############
 alias s=ls
+alias vim=nvim
 
 
 
