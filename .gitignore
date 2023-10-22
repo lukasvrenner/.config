@@ -3,4 +3,4 @@ VirtualBox/
 libvirt
 gnome-boxes
 xfce4/xconf
-user-dirs*
+user-*
