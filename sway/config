@@ -173,6 +173,7 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 
 # Start a terminal
 bindsym $mod+Return exec $term
+bindsym $mod+n exec $term -e $EDITOR
 
 
 # Kill focused window
