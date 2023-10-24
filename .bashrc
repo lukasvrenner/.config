@@ -53,12 +53,7 @@ alias vim=nvim
 
 
 
-#############################
-#   ENVIRONMENT VARIABLES   #
-#############################
 
-# text editor
-export EDITOR=nvim
-export VISUAL=nvim
+
 set -o vi
 
