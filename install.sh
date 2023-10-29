@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # this is a complete setup post-install script
 
 sudo dnf install sway # window manager
@@ -7,13 +8,17 @@ sudo dnf install i3-status # status line generator
 
 # neovim
 sudo dnf install neovim
-# packer -- neovim plugin manager
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+if  ls /usr/bin/nvim | grep -q nvim; 
+then
+    # packer -- neovim plugin manager
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    nvim +PackerInstall +q # install plugins and quit
+fi
+
 sudo dnf install ripgrep # used for live grep in telescope.nvim
-nvim +PackerInstall +q # install plugins and quit
 
 # web browser
-sudo dnf install firefox # should be pre-installed
+sudo dnf install firefox
 
 # rust 
