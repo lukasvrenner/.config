@@ -1,12 +1,11 @@
-
 # Read `man 5 sway` for a complete reference.
+# https://i3wm.org/docs/userguide.html
 
 ### Variables
 #
 # Mod1 is Alt key. Use Mod4 for super
 # keep in mind that alt and super are swapped
 set $mod Mod4
-# xwayland disable
 
 # Home row direction keys, like vim
 set $left h
@@ -23,6 +22,45 @@ set $menu fuzzel
 
 # lockscreen
 set $lock swaylock
+
+### Idle configuration
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 100 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# do not start xwayland on startup
+xwayland disable
+
+#########
+# Input #
+#########
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+# swaymsg -t get_inputs
+# man 7 xkeyboard-config
+input type:keyboard {
+    xkb_layout us
+    xkb_variant dvorak
+    repeat_rate 020
+    repeat_delay 200
+    # swap super and alt; use Ctrl+Space to toggle layout
+    xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
+}
+# swap alt and win for mac keyboard
+input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
+    xkb_options grp:ctrl_space_toggle
+}
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -34,54 +72,11 @@ set $lock swaylock
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-exec swayidle -w \
-    timeout 300 '$lock' \
-    timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep '$lock'
-
-# disable xwayland
-xwayland disable
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 100 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-input type:touchpad {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
+# Monitor positions
+output LVDS-1 pos 0 0
+output HDMI-A-1 pos -280 -1050
 }
 
-# swaymsg -t get_inputs
-# man 7 xkeyboard-config
-# sets dvorak keyboard layout
-input type:keyboard {
-    xkb_layout dvorak,us
-    repeat_rate 020
-    repeat_delay 200
-    # swap super and alt; use Ctrl+Space to toggle layout
-    xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
-    #xkb_options caps:swapescape
-}
-input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
-    # swap alt and win for mac keyboard
-    xkb_options grp:ctrl_space_toggle
-    #xkb_options caps:swapescape
-}
-input type:touchpad {
-natural_scroll enabled
-}
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-
-# Hide mouse cursor after a period of inactivity.
-seat seat0 hide_cursor when-typing enable
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -95,12 +90,10 @@ floating_modifier $mod normal
 bindswitch --locked lid:on exec systemctl suspend
 
 
-# Monitor positions
-output LVDS-1 pos 0 0
-output HDMI-A-1 pos -280 -1050
 
-
-# Workspaces
+##############
+# Workspaces #
+##############
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -113,128 +106,6 @@ set $ws9 "9"
 set $ws10 "10"
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
-
-# switches to previously focused workspace on repeat of focus
-workspace_auto_back_and_forth yes
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-
-    # options
-    position top
-    # gaps 4
-    separator_symbol " | "
-    wrap_scroll yes
-    status_edge_padding 13
-    status_padding 0
-
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command i3status
-
-    colors {
-        # class            border  backgr. text
-        statusline                         #ebdbb2
-        background                 #282828
-
-        focused_workspace  #458588 #458588 #ebdbb2
-        active_workspace   #458588 #282828 #ebdbb2
-        inactive_workspace #282828 #282828 #ebdbb2
-
-        binding_mode       #3c3836 #3c3836 #ebdbb2
-        separator "#b16286"
-    }
-
-
-}
-
-# Windows:
-font source code pro 10
-# gaps inner 4px
-
-default_border pixel 1
-
-# class                 border  backgr. text    indicator 
-client.focused          #282828 #98971a #ebdbb2 #cc241d   
-client.focused_inactive #282828 #3c3836 #ebdbb2 #3c3836
-client.unfocused        #282828 #3c3836 #ebdbb2 #3c3836
-client.urgent           #282828 #cc241d #ebdbb2 #3c3836
-
-# swaymsg -t get_tree
-for_window [app_id="blueman-manager"] floating enable
-for_window [app_id="nm-connection-editor"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk"] floating enable
-
-
-# Start a terminal
-bindsym $mod+Return exec $term
-bindsym $mod+n exec $term -e $EDITOR
-
-
-# Kill focused window
-bindsym $mod+Shift+q kill
-
-# Start launcher
-bindsym $mod+d exec $menu
-
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-
-# Restart
-bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
-
-# Window Switcher
-bindsym $mod+c exec ~/bin/fuzzel/window-switcher.sh
-
-# Exit 
-bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
-
-# Bluetooth
-bindsym $mod+b exec blueman-manager
-
-# Screenshots
-bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
-#bindsym $mod+c exec pkill wf-recorder 
-
-# Moving around:
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-# Or use $mod+[up|down|left|right]
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# Move workspcaces around
-bindsym $mod+Ctrl+$left move workspace to output left
-bindsym $mod+Ctrl+$down move workspace to output down
-bindsym $mod+Ctrl+$up move workspace to output up
-bindsym $mod+Ctrl+$right move workspace to output right
-
-bindsym $mod+Ctrl+Left move workspace to output left
-bindsym $mod+Ctrl+Down move workspace to output down
-bindsym $mod+Ctrl+Up move workspace to output up
-bindsym $mod+Ctrl+Right move workspace to output right
-
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -259,6 +130,134 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Move workspcaces around
+bindsym $mod+Ctrl+$left move workspace to output left
+bindsym $mod+Ctrl+$down move workspace to output down
+bindsym $mod+Ctrl+$up move workspace to output up
+bindsym $mod+Ctrl+$right move workspace to output right
+
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
+
+# switches to previously focused workspace on repeat of focus
+workspace_auto_back_and_forth yes
+
+
+###########
+# Windows #
+###########
+font source code pro 10
+# gaps inner 4px
+
+default_border pixel 1
+
+# class                 border  backgr. text    indicator 
+client.focused          #282828 #98971a #ebdbb2 #cc241d   
+client.focused_inactive #282828 #3c3836 #ebdbb2 #3c3836
+client.unfocused        #282828 #3c3836 #ebdbb2 #3c3836
+client.urgent           #282828 #cc241d #ebdbb2 #3c3836
+
+# swaymsg -t get_tree
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+
+###############
+# Keybindings #
+###############
+
+# Start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+n exec $term -e $EDITOR
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start launcher
+bindsym $mod+o exec $menu
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart
+bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
+
+# Window Switcher
+bindsym $mod+c exec ~/bin/fuzzel/window-switcher.sh
+
+# Exit 
+bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
+
+# Bluetooth
+bindsym $mod+b exec blueman-manager
+
+# Screenshots
+bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
+#bindsym $mod+c exec pkill wf-recorder 
+
+##############
+# Status bar #
+##############
+
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+
+    # options
+    position top
+    # gaps 4
+    separator_symbol " | "
+    wrap_scroll yes
+    status_edge_padding 13
+    status_padding 0
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command i3status
+
+    colors {
+        # class            border  backgr. text
+        statusline                         #ebdbb2
+        background                 #282828
+
+        focused_workspace  #458588 #458588 #ebdbb2
+        active_workspace   #458588 #282828 #ebdbb2
+        inactive_workspace #282828 #282828 #ebdbb2
+
+        binding_mode       #3c3836 #3c3836 #ebdbb2
+        separator "#b16286"
+    }
+
+
+}
+
+
 # Screen lock
 # bindsym $mod+Shift+l exec $lock
 
@@ -280,8 +279,8 @@ bindsym --locked {
 }
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec light -U 10
-bindsym XF86MonBrightnessDown exec light -A 10
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 # Layout stuff:
 
 # You can "split" the current object of your focus with
@@ -291,8 +290,8 @@ bindsym $mod+v splith
 bindsym $mod+w splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+semicolon layout stacking
-bindsym $mod+period layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # Make the current focus fullscreen
