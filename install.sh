@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 # this is a complete setup post-install script
 # REQUIRES ROOT 
 # if you want a rootless install, use rootless_install.sh
