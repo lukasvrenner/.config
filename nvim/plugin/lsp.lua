@@ -63,14 +63,14 @@ cmp.setup({
     })
   })
 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ['rust-analyzer'] = {},
   },
-  capabilities = capabilities 
+  capabilities = capabilities,
 }
 -- lspconfig.lua_ls.setup {}
 
