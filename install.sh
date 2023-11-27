@@ -24,15 +24,15 @@ alt_install () {
 install sway
 install swaybar # status bar for sway
 
-# super efficient status bar generator
+# efficient status bar generator
 install i3status
 
 # blazingly fast and lightweight wayland terminal emulator
 install foot
 
-# neovim
+# a heavily refactored vim fork
 alt_install neovim nvim
-# if it is installed or successfully installs,
+# if neovim is installed or successfully installs,
 # then we can install plugin dependencies
 if  ls /usr/bin/ | grep -q nvim; 
 then
@@ -49,3 +49,7 @@ install firefox
 # rust 
 install cargo # package manager
 install rustc # compiler
+
+# file managers
+install nnn # terminal
+install Thunar # GTK
