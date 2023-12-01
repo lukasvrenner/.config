@@ -75,7 +75,7 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
 # Monitor positions
 output LVDS-1 pos 0 0
 output HDMI-A-1 pos -280 -1050
-}
+
 
 
 # Drag floating windows by holding down $mod and left mouse button.
