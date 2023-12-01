@@ -25,7 +25,7 @@ vim.o.hlsearch = false
 vim.o.incsearch = true
 -- vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
 vim.cmd[[colorscheme gruvbox]]
-vim.o.swapfile = true
+vim.o.swapfile = false
 vim.termguicolors = true -- 256 color support
 
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
