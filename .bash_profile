@@ -20,3 +20,4 @@ export NNN_OPTS="AedH"
 
 
 # User specific environment and startup programs
+. "$HOME/.cargo/env"

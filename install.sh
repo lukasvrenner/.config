@@ -47,8 +47,10 @@ fi
 install firefox
 
 # rust 
-install cargo # package manager
-install rustc # compiler
+
+# note: will require user input to complete
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo component add rust-analyzer # LSP
 
 # file managers
 install nnn # terminal

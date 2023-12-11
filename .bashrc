@@ -80,10 +80,10 @@ n ()
 ###############
 alias s=ls
 alias vim=nvim
-# alias n='nnn -Ae'
 
 # vi mode
 set -o vi
 
 # set prompt
 PS1='\[\e[${PROMPT_COLOR:-32}m\]\u@\h\[\e[0m\]:\[\e[${PROMPT_COLOR:-32}m\]\w\[\e[0;31m\]${?#0}\[\e[0m\]\$ '
+. "$HOME/.cargo/env"
