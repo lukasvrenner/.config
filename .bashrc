@@ -56,8 +56,8 @@ n ()
     # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
     # see. To cd on quit only on ^G, remove the "export" and make sure not to
     # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
-    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
     # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
     # stty start undef
@@ -86,4 +86,6 @@ set -o vi
 
 # set prompt
 PS1='\[\e[${PROMPT_COLOR:-32}m\]\u@\h\[\e[0m\]:\[\e[${PROMPT_COLOR:-32}m\]\w\[\e[0;31m\]${?#0}\[\e[0m\]\$ '
+
+# rust
 . "$HOME/.cargo/env"
