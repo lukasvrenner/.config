@@ -1,5 +1,5 @@
-require('mason').setup {}
-require('mason-lspconfig').setup()
+-- require('mason').setup {}
+-- require('mason-lspconfig').setup()
 
 local cmp = require'cmp'
 
@@ -71,6 +71,7 @@ lspconfig.rust_analyzer.setup {
     ['rust-analyzer'] = {},
   },
   capabilities = capabilities,
+  cmd = {"rustup", "run", "stable", "rust-analyzer" }
 }
 -- lspconfig.lua_ls.setup {}
 

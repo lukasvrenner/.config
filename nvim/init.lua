@@ -39,8 +39,8 @@ require('packer').startup(function(use)
 	use 'nvim-treesitter/nvim-treesitter' --  improves syntax highlighting
 
 	use 'neovim/nvim-lspconfig' -- adds lsp support
-	use "williamboman/mason.nvim" -- "package manager" for language servers
-	use 'williamboman/mason-lspconfig.nvim' -- improves support for mason lspconfig
+	-- use "williamboman/mason.nvim" -- "package manager" for language servers
+	-- use 'williamboman/mason-lspconfig.nvim' -- improves support for mason lspconfig
 
     use 'hrsh7th/cmp-nvim-lsp' -- lsp completion
     use 'hrsh7th/cmp-buffer' -- buffer completion
