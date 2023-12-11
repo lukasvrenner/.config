@@ -51,7 +51,7 @@ input type:touchpad {
 input type:keyboard {
     xkb_layout us
     xkb_variant dvorak
-    repeat_rate 020
+    repeat_rate 040
     repeat_delay 200
     # swap super and alt; use Ctrl+Space to toggle layout
     xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
