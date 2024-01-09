@@ -46,7 +46,8 @@ fi
 # web browser
 install firefox
 
-# rust 
+# development 
+install gh
 
 # note: will require user input to complete
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
