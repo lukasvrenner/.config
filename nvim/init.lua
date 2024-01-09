@@ -14,7 +14,7 @@ vim.o.ttyfast = true -- increases scrolling speed
 vim.o.autoindent = true -- indent new lines the same amount as previous line
 vim.o.clipboard = 'unnamedplus'
 vim.o.cursorline = true -- highlight current line
--- vim.cmd[[autocmd FileType * set formatoptions-=ro]]
+vim.cmd[[autocmd FileType * set formatoptions-=ro]]
 -- disables autocommenting on new lines
 vim.api.nvim_create_autocmd("BufEnter", { callback = function() vim.opt.formatoptions = vim.opt.formatoptions - { "c","r","o" } end, })
 vim.o.updatetime = 250
