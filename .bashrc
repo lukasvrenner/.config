@@ -79,7 +79,6 @@ n ()
 #   ALIASES   #
 ###############
 alias s=ls
-alias vim=nvim
 
 # vi mode
 set -o vi
