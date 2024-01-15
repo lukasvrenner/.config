@@ -7,3 +7,6 @@ user-*
 keypassxc/
 Thunar/accels.scm
 pavucontrol.ini
+ibus/
+signond/
+htop/
