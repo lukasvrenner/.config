@@ -1,36 +1,43 @@
 vim.g.mapleader = ' '
--- require('plugins')
 require('keymaps')
 
 -- Options
 vim.o.number = true -- show line numbers
-vim.o.scl = 'no' -- hide/show sign collumn
 vim.o.relativenumber = true -- show relative line numbers
+vim.o.scl = 'no' -- hide/show sign collumn
+
 vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops
 vim.o.expandtab = true -- converts tabs to white space
 vim.o.shiftwidth = 4 -- sets width for autoindent
-vim.o.ttyfast = true -- increases scrolling speed
 vim.o.autoindent = true -- indent new lines the same amount as previous line
-vim.o.clipboard = 'unnamedplus'
+
+vim.o.ttyfast = true -- increases scrolling speed
 vim.o.cursorline = true -- highlight current line
-vim.cmd[[autocmd FileType * set formatoptions-=ro]]
--- disables autocommenting on new lines
-vim.api.nvim_create_autocmd("BufEnter", { callback = function() vim.opt.formatoptions = vim.opt.formatoptions - { "c","r","o" } end, })
 vim.o.updatetime = 250
-vim.o.ignorecase = true -- case insensitive search
-vim.o.syntax = false -- disable regex syntax because treesitter is faster and more comprehensive
+vim.o.syntax = false -- disable regex syntax (treesitter insstead)
+
 -- stops highlighting after search is complete
 vim.o.hlsearch = false
 vim.o.incsearch = true
--- vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
-vim.cmd[[colorscheme gruvbox]]
+
+vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
 vim.o.swapfile = false
 vim.termguicolors = true -- 256 color support
+vim.o.clipboard = 'unnamedplus' -- use system clipboard
+vim.cmd[[colorscheme gruvbox]]
+
+-- disables autocommenting on new lines
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function() vim.opt.formatoptions = vim.opt.formatoptions - {
+        "c","r","o" 
+    } end, 
+})
 
 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 -- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+-- PACKER IS NO LONGER MAINTAINED
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- plugin manager
 
