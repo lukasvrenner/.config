@@ -15,22 +15,5 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- use esc to enter normal mode in terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
--- use system clipboard
 -- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
--- Dvorak remap
-
--- vim.keymap.set("", "h", "h")
--- vim.keymap.set("", "t", "j")
--- vim.keymap.set("", "n", "k")
--- vim.keymap.set("", "N", "k")
--- vim.keymap.set("", "s", "l")
--- vim.keymap.set("", "S", "L")
--- vim.keymap.set("", "-", "$")
--- vim.keymap.set("", "l", "s")
--- vim.keymap.set("", "L", "S")
--- vim.keymap.set("", "T", "J")
--- vim.keymap.set("", "k", 'n')
--- vim.keymap.set("", "K", 'N')
--- vim.keymap.set("", "j", "t")
--- vim.keymap.set("", "J", "T")
