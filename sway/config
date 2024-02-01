@@ -1,10 +1,14 @@
 # Read `man 5 sway` for a complete reference.
 # https://i3wm.org/docs/userguide.html
 
-### Variables
-#
+include /etc/sway/config.d/*
+
+#############
+# Variables #
+#############
+
 # Mod1 is Alt key. Use Mod4 for super
-# keep in mind that alt and super are swapped
+# 
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -56,7 +60,8 @@ input type:keyboard {
     # swap super and alt; use Ctrl+Space to toggle layout
     xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
 }
-# swap alt and win for mac keyboard
+
+# don't swap alt and win for Mac keyboard
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
     xkb_options grp:ctrl_space_toggle
 }
@@ -89,8 +94,6 @@ floating_modifier $mod normal
 # enable or disable screen on lid-close/open
 bindswitch --locked lid:on exec systemctl suspend
 
-
-
 ##############
 # Workspaces #
 ##############
@@ -104,6 +107,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 # Switch to workspace
@@ -149,7 +153,6 @@ workspace_auto_back_and_forth yes
 # Windows #
 ###########
 font source code pro 10
-# gaps inner 4px
 
 default_border pixel 1
 
@@ -194,7 +197,6 @@ bindsym $mod+Shift+Right move right
 
 # Start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+n exec $term -e $EDITOR
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -205,57 +207,70 @@ bindsym $mod+o exec $menu
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
+#########
+# modes #
+#########
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+mode "new mark" {
+    bindsym 1 mark 1; mode "default"
+    bindsym 2 mark 2; mode "default"
+    bindsym 3 mark 3; mode "default"
+    bindsym 4 mark 4; mode "default"
+    bindsym 5 mark 5; mode "default"
+    bindsym 6 mark 6; mode "default"
+    bindsym 7 mark 7; mode "default"
+    bindsym 8 mark 8; mode "default"
+    bindsym 9 mark 9; mode "default"
+    bindsym 0 mark 0; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "jump to mark" {
+    bindsym 1 [con_mark="1"] focus; mode "default"
+    bindsym 2 [con_mark="2"] focus; mode "default"
+    bindsym 3 [con_mark="3"] focus; mode "default"
+    bindsym 4 [con_mark="4"] focus; mode "default"
+    bindsym 5 [con_mark="5"] focus; mode "default"
+    bindsym 6 [con_mark="6"] focus; mode "default"
+    bindsym 7 [con_mark="7"] focus; mode "default"
+    bindsym 8 [con_mark="8"] focus; mode "default"
+    bindsym 9 [con_mark="9"] focus; mode "default"
+    bindsym 0 [con_mark="0"] focus; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # Restart
 bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
-
-# Window Switcher
-bindsym $mod+c exec ~/bin/fuzzel/window-switcher.sh
-
-# Exit 
-bindsym $mod+Shift+e exec ~/bin/fuzzel/power-menu.sh
-
-# Bluetooth
-bindsym $mod+b exec blueman-manager
 
 # Screenshots
 bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
 #bindsym $mod+c exec pkill wf-recorder 
 
-##############
-# Status bar #
-##############
-
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-
-    # options
-    position top
-    # gaps 4
-    separator_symbol " | "
-    wrap_scroll yes
-    status_edge_padding 13
-    status_padding 0
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-    status_command i3status
-
-    colors {
-        # class            border  backgr. text
-        statusline                         #ebdbb2
-        background                 #282828
-
-        focused_workspace  #458588 #458588 #ebdbb2
-        active_workspace   #458588 #282828 #ebdbb2
-        inactive_workspace #282828 #282828 #ebdbb2
-
-        binding_mode       #3c3836 #3c3836 #ebdbb2
-        separator "#b16286"
-    }
-
-
-}
 
 
 # Screen lock
@@ -316,61 +331,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
-}
-bindsym $mod+r mode "resize"
-
-mode "new mark" {
-    bindsym 1 mark 1; mode "default"
-    bindsym 2 mark 2; mode "default"
-    bindsym 3 mark 3; mode "default"
-    bindsym 4 mark 4; mode "default"
-    bindsym 5 mark 5; mode "default"
-    bindsym 6 mark 6; mode "default"
-    bindsym 7 mark 7; mode "default"
-    bindsym 8 mark 8; mode "default"
-    bindsym 9 mark 9; mode "default"
-    bindsym 0 mark 0; mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-mode "jump to mark" {
-    bindsym 1 [con_mark="1"] focus; mode "default"
-    bindsym 2 [con_mark="2"] focus; mode "default"
-    bindsym 3 [con_mark="3"] focus; mode "default"
-    bindsym 4 [con_mark="4"] focus; mode "default"
-    bindsym 5 [con_mark="5"] focus; mode "default"
-    bindsym 6 [con_mark="6"] focus; mode "default"
-    bindsym 7 [con_mark="7"] focus; mode "default"
-    bindsym 8 [con_mark="8"] focus; mode "default"
-    bindsym 9 [con_mark="9"] focus; mode "default"
-    bindsym 0 [con_mark="0"] focus; mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
 
 bindsym $mod+Shift+m mode "new mark"
 bindsym $mod+m mode "jump to mark"
@@ -383,13 +343,44 @@ set $screenrecord wf-recorder -g "$(slurp)" -f ~/Videos/screenshots/mov-$(date +
 bindsym Ctrl+Shift+F6 exec $screenrecord
 bindsym Ctrl+Shift+Backspace exec killall -s SIGINT wf-recorder
 
+##############
+# Status bar #
+##############
+
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+
+    # options
+    position top
+    # gaps 4
+    separator_symbol " | "
+    wrap_scroll yes
+    status_edge_padding 13
+    status_padding 0
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command i3status
+
+    colors {
+        # class            border  backgr. text
+        statusline                         #ebdbb2
+        background                 #282828
+
+        focused_workspace  #458588 #458588 #ebdbb2
+        active_workspace   #458588 #282828 #ebdbb2
+        inactive_workspace #282828 #282828 #ebdbb2
+
+        binding_mode       #3c3836 #3c3836 #ebdbb2
+        separator "#b16286"
+    }
+}
 
 exec $term
-# notifications
-# exec mako
+
 # empty trash ofter 30 days
 # -f prevents an issue that arose due to verification being required
 exec trash-empty 30 -f
-include /etc/sway/config.d/*
-# include ~/.config/sway/config.d/*
+
 
