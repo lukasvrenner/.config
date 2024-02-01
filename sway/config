@@ -342,6 +342,39 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "new mark" {
+    bindsym 1 mark 1; mode "default"
+    bindsym 2 mark 2; mode "default"
+    bindsym 3 mark 3; mode "default"
+    bindsym 4 mark 4; mode "default"
+    bindsym 5 mark 5; mode "default"
+    bindsym 6 mark 6; mode "default"
+    bindsym 7 mark 7; mode "default"
+    bindsym 8 mark 8; mode "default"
+    bindsym 9 mark 9; mode "default"
+    bindsym 0 mark 0; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "jump to mark" {
+    bindsym 1 [con_mark="1"] focus; mode "default"
+    bindsym 2 [con_mark="2"] focus; mode "default"
+    bindsym 3 [con_mark="3"] focus; mode "default"
+    bindsym 4 [con_mark="4"] focus; mode "default"
+    bindsym 5 [con_mark="5"] focus; mode "default"
+    bindsym 6 [con_mark="6"] focus; mode "default"
+    bindsym 7 [con_mark="7"] focus; mode "default"
+    bindsym 8 [con_mark="8"] focus; mode "default"
+    bindsym 9 [con_mark="9"] focus; mode "default"
+    bindsym 0 [con_mark="0"] focus; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+m mode "new mark"
+bindsym $mod+m mode "jump to mark"
+
 bindsym f12 exec ~/bin/fuzzel/keybindings.sh
 bindsym $mod+Shift+w exec ~/bin/fuzzel/wifi-selector.sh
 bindsym $mod+Space exec ~/bin/fuzzel/web-search.sh
