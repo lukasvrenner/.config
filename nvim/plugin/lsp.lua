@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts) -- goes to declaration
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- goes to definition
     vim.keymap.set('n', '<leader>N', vim.lsp.buf.hover, opts) -- displays variable/function info
-    vim.keymap.set('n', 'gr', vim.lsp.buf.implementation, opts)
+    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
