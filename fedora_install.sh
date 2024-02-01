@@ -1,11 +1,11 @@
 #!/usr/bin/sh
-# this is a complete setup post-install script
 # REQUIRES ROOT 
+# *NOT* distro-agnostic -- requires RHEL-based distro 
 # if you want a rootless install, use rootless_install.sh
 
 install () {
     echo "installing $1"
-    if ls /usr/bin/ | grep -q $1; # checks if installed to boost speed if it isn't
+    if ls /usr/bin/$1; # checks if installed to boost speed if it isn't
     then echo "$1 is already installed"
     else sudo dnf install $1
     fi
@@ -14,11 +14,14 @@ install () {
 # sometimes, the executable has a different name from the package
 alt_install () {
     echo "installing $1"
-    if ls /usr/bin | grep -q $2;
+    if ls /usr/bin/$2;
     then echo "$1 is already installed"
     else sudo dnf install $1;
     fi
 }
+
+ln -s ~/.config/.bashrc ~/.bashrc
+ln -s ~/.config/.bash_profile ~/.bash_profile
 
 # window manager
 install sway
@@ -34,7 +37,7 @@ install foot
 alt_install neovim nvim
 # if neovim is installed or successfully installs,
 # then we can install plugin dependencies
-if  ls /usr/bin/ | grep -q nvim; 
+if  ls /usr/bin/nvim; 
 then
     # packer -- neovim plugin manager
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
