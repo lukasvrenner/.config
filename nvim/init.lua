@@ -6,6 +6,8 @@ vim.o.number = true -- show line numbers
 vim.o.relativenumber = true -- show relative line numbers
 vim.o.scl = 'no' -- hide/show sign collumn
 
+vim.opt.colorcolumn = "80"
+
 vim.o.tabstop = 4 -- number of columns occupied by a tab
 vim.o.softtabstop = 4 -- see multiple spaces as tabstops
 vim.o.expandtab = true -- converts tabs to white space
@@ -39,7 +41,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- PACKER IS NO LONGER MAINTAINED
 require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim' -- plugin manager
+    use 'wbthomason/packer.nvim' -- plugin manager
 
 	use 'windwp/nvim-autopairs' -- closes opening brackets and quotes
 
