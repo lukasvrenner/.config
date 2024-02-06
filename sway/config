@@ -57,13 +57,17 @@ input type:keyboard {
     xkb_variant dvorak
     repeat_rate 040
     repeat_delay 200
-    # swap super and alt; use Ctrl+Space to toggle layout
-    xkb_options grp:ctrl_space_toggle,altwin:swap_alt_win
+    xkb_options altwin:swap_alt_win,caps:swapescape
+}
+
+# don't swap esc and caps for kinesis keyboard
+input 10730:866:Kinesis_Corporation_Adv360_Pro_Keyboard {
+    xkb_options altwin:swap_alt_win
 }
 
 # don't swap alt and win for Mac keyboard
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
-    xkb_options grp:ctrl_space_toggle
+    xkb_options caps:swapescape
 }
 
 ### Output configuration
@@ -281,7 +285,7 @@ bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-set $volume_helper_cmd ~/.config/sway/volume-helper
+set $volume_helper_cmd ~/.config/sway/volume_helper.sh
 
 # Allow volume controls even if the screen is locked
 bindsym --locked {
