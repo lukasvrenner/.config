@@ -1,10 +1,10 @@
-vim.g.mapleader = ' '
-require('keymaps')
+vim.g.mapleader = " "
+require("keymaps")
 
 -- Options
 vim.o.number = true -- show line numbers
 vim.o.relativenumber = true -- show relative line numbers
-vim.o.scl = 'no' -- hide/show sign collumn
+vim.o.scl = "no" -- hide/show sign collumn
 
 vim.opt.colorcolumn = "80"
 
@@ -26,7 +26,7 @@ vim.o.incsearch = true
 vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
 vim.o.swapfile = false
 vim.termguicolors = true -- 256 color support
-vim.o.clipboard = 'unnamedplus' -- use system clipboard
+vim.o.clipboard = "unnamedplus" -- use system clipboard
 vim.cmd[[colorscheme gruvbox]]
 
 -- disables autocommenting on new lines
@@ -36,42 +36,29 @@ vim.api.nvim_create_autocmd("BufEnter", {
     } end, 
 })
 
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim\
--- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+-- git clone --depth=1 https://github.com/savq/paq-nvim.git \
+--     "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
+require("paq") {
+    "savq/paq-nvim",
+    "windwp/nvim-autopairs", -- auto closing-pairs
 
--- PACKER IS NO LONGER MAINTAINED
-require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim' -- plugin manager
+    "neovim/nvim-lspconfig", -- adds lsp support
 
-	use 'windwp/nvim-autopairs' -- closes opening brackets and quotes
+    "nvim-treesitter/nvim-treesitter", -- improves syntax highlighting
+    "hrsh7th/cmp-nvim-lsp", -- lsp completion
+    "hrsh7th/cmp-buffer", -- buffer completion
+    "hrsh7th/cmp-path", -- path completion
+    "hrsh7th/nvim-cmp", -- completion engine
+    "L3MON4D3/LuaSnip", -- snippet engine
+    "saadparwaiz1/cmp_luasnip", -- snippet completion
+    "numToStr/Comment.nvim", -- allows for commenting vs gc and gcc
+    "ellisonleao/gruvbox.nvim", -- gruvbox theme
+    -- fuzzy finder
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim", -- commonly used functions
+}
 
-	use 'nvim-treesitter/nvim-treesitter' --  improves syntax highlighting
-
-	use 'neovim/nvim-lspconfig' -- adds lsp support
-	-- use "williamboman/mason.nvim" -- "package manager" for language servers
-	-- use 'williamboman/mason-lspconfig.nvim' -- improves support for mason lspconfig
-
-    use 'hrsh7th/cmp-nvim-lsp' -- lsp completion
-    use 'hrsh7th/cmp-buffer' -- buffer completion
-    use 'hrsh7th/cmp-path' -- path completion
-    use 'hrsh7th/nvim-cmp' -- completion engine
-    use 'L3MON4D3/LuaSnip' -- snippet engine
-    use 'saadparwaiz1/cmp_luasnip' -- snippet completion
-
-	use 'numToStr/Comment.nvim' -- allows for commenting vs gc and gcc
-
-	use {"ellisonleao/gruvbox.nvim"} -- gruvbox theme
-
-	-- fuzzy finder
-	use {
-	'nvim-telescope/telescope.nvim', tag = '0.1.4',
-	requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
-
-end)
-
-require('nvim-autopairs').setup()
+require("nvim-autopairs").setup()
 
 -- use gcc to comment in normal mode and gc in visual mode
-require('Comment').setup()
+require("Comment").setup()
