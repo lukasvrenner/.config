@@ -39,10 +39,18 @@ alt_install neovim nvim
 # then we can install plugin dependencies
 if  ls /usr/bin/nvim; 
 then
-    # packer -- neovim plugin manager
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    nvim +PackerInstall +q # install plugins and quit
+    # paq-nvim -- neovim plugin manager
+    git clone --depth=1 https://github.com/savq/paq-nvim.git \
+        "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
+
+    # temporarily rename plugin directory
+    # so that we don't get any errors for PaqInstall
+    # note that this is a poor workaround
+    path=dirname "$0"
+    mv $path/nvim/plugin $path/nvim/plugin.bak
+    nvim +PaqInstall +q # install plugins and quit
+    mv $path/nvim/plugin.bak $path/nvim/plugin
+
     alt_install ripgrep rg # a grep-like program used by telescope.nvim for text search
 fi
 
