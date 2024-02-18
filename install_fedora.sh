@@ -20,8 +20,11 @@ alt_install () {
     fi
 }
 
-ln -s ~/.config/.bashrc ~/.bashrc
-ln -s ~/.config/.bash_profile ~/.bash_profile
+# symlink bash configs
+path_to_script=dirname $0
+
+ln -s $path_to_script/.bashrc ~/.bashrc
+ln -s $path_to_script/.bash_profile ~/.bash_profile
 
 # window manager
 install sway
@@ -43,13 +46,7 @@ then
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
 
-    # temporarily rename plugin directory
-    # so that we don't get any errors for PaqInstall
-    # note that this is a poor workaround
-    path=dirname "$0"
-    mv $path/nvim/plugin $path/nvim/plugin.bak
     nvim +PaqInstall +q # install plugins and quit
-    mv $path/nvim/plugin.bak $path/nvim/plugin
 
     alt_install ripgrep rg # a grep-like program used by telescope.nvim for text search
 fi
@@ -61,8 +58,16 @@ install firefox
 install gh
 
 # note: will require user input to complete
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-cargo component add rust-analyzer # LSP
+echo "installing Rust requires downloading and executing a script from the web"
+echo "this is a potential security risk"
+read -p "would you like to continue? (y/N)" confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]
+then
+    echo "installing Rust"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    cargo component add rust-analyzer # LSP
+else
+    echo "Rust was not installed"
 
 # file managers
 install nnn # terminal
