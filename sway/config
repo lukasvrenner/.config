@@ -268,14 +268,15 @@ mode "jump to mark" {
     bindsym Escape mode "default"
 }
 
+bindsym $mod+Shift+m mode "new mark"
+bindsym $mod+m mode "jump to mark"
+
 # Restart
 bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
 
 # Screenshots
 bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
 #bindsym $mod+c exec pkill wf-recorder 
-
-
 
 # Screen lock
 # bindsym $mod+Shift+l exec $lock
@@ -336,13 +337,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+Shift+m mode "new mark"
-bindsym $mod+m mode "jump to mark"
-
-bindsym f12 exec ~/bin/fuzzel/keybindings.sh
-bindsym $mod+Shift+w exec ~/bin/fuzzel/wifi-selector.sh
-bindsym $mod+Space exec ~/bin/fuzzel/web-search.sh
-
 set $screenrecord wf-recorder -g "$(slurp)" -f ~/Videos/screenshots/mov-$(date +"%Y-%m-%d--%H-%M-%s.mp4")
 bindsym Ctrl+Shift+F6 exec $screenrecord
 bindsym Ctrl+Shift+Backspace exec killall -s SIGINT wf-recorder
@@ -377,7 +371,7 @@ bar {
         inactive_workspace #282828 #282828 #ebdbb2
 
         binding_mode       #3c3836 #3c3836 #ebdbb2
-        separator "#b16286"
+        separator #b16286
     }
 }
 
