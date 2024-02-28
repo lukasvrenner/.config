@@ -82,8 +82,8 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Monitor positions
-output LVDS-1 pos 0 0
-output HDMI-A-1 pos -280 -1050
+# output LVDS-1 pos 0 0
+# output HDMI-A-1 pos -280 -1050
 
 
 
@@ -96,7 +96,9 @@ floating_modifier $mod normal
 
 # Screen Lock
 # enable or disable screen on lid-close/open
-bindswitch --locked lid:on exec systemctl suspend
+exec_always ~/.config/sway/clamshell.sh
+bindswitch --locked lid:on output LVDS-1 disable
+bindswitch --locked lid:off output LVDS-1 enable
 
 ##############
 # Workspaces #
