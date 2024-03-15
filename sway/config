@@ -29,9 +29,9 @@ set $lock swaylock
 
 ### Idle configuration
 exec swayidle -w \
-    timeout 300 '$lock' \
-    timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep '$lock'
+timeout 300 '$lock' \
+timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+before-sleep '$lock'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 100 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -82,8 +82,8 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Monitor positions
-# output LVDS-1 pos 0 0
-# output HDMI-A-1 pos -280 -1050
+output LVDS-1 pos 0 0
+output HDMI-A-1 pos -280 -1050
 
 
 
@@ -96,7 +96,10 @@ floating_modifier $mod normal
 
 # Screen Lock
 # enable or disable screen on lid-close/open
-exec_always ~/.config/sway/clamshell.sh
+
+# breaking my system!!!! :(
+# exec_always ~/.config/sway/clamshell.sh
+
 bindswitch --locked lid:on output LVDS-1 disable
 bindswitch --locked lid:off output LVDS-1 enable
 
@@ -377,10 +380,7 @@ bar {
     }
 }
 
-exec $term
-
 # empty trash ofter 30 days
 # -f prevents an issue that arose due to verification being required
 exec trash-empty 30 -f
-
-
+exec $term
