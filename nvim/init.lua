@@ -29,10 +29,10 @@ vim.termguicolors = true -- 256 color support
 vim.o.clipboard = "unnamedplus" -- use system clipboard
 vim.cmd[[colorscheme gruvbox]]
 
--- disables autocommenting on new lines
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function() vim.opt.formatoptions = vim.opt.formatoptions - {
-        "c","r","o" 
-    } end, 
-})
+-- -- disables autocommenting on new lines
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--     callback = function() vim.opt.formatoptions = vim.opt.formatoptions - {
+--         "c","r","o" 
+--     } end, 
+-- })
 
