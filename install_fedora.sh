@@ -34,7 +34,7 @@ install swaybar # status bar for sway
 install i3status
 
 # application launch
-install bemenu 
+install wmenu 
 
 # blazingly fast and lightweight wayland terminal emulator
 install foot

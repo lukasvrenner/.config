@@ -17,12 +17,23 @@ set $down j
 set $up k 
 set $right l
 
+# colors 
+set $bg #282828
+set $fg #ebdbb2
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+
 set $term foot
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run | xargs swaymsg exec --
+
+# manually set colors because wmenu doesn't support hex
+set $menu dmenu_path | wmenu -N 282828 -n ebdbb2 -S 458588 -f "source code pro 12" | xargs swaymsg exec --
 
 # lockscreen
 set $lock swaylock
@@ -166,14 +177,12 @@ font source code pro 10
 default_border pixel 1
 
 # class                 border  backgr. text    indicator 
-client.focused          #282828 #98971a #ebdbb2 #cc241d   
-client.focused_inactive #282828 #3c3836 #ebdbb2 #3c3836
-client.unfocused        #282828 #3c3836 #ebdbb2 #3c3836
-client.urgent           #282828 #cc241d #ebdbb2 #3c3836
+client.focused          $bg     $green  $fg     $red
+client.focused_inactive $bg     #3c3836 $fg     $red
+client.unfocused        $bg     #3c3836 $fg     $red
+client.urgent           $bg     $red    $fg     $red
 
 # swaymsg -t get_tree
-for_window [app_id="blueman-manager"] floating enable
-for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 
 # Move your focus around
@@ -368,15 +377,15 @@ bar {
 
     colors {
         # class            border  backgr. text
-        statusline                         #ebdbb2
-        background                 #282828
+        statusline                         $fg
+        background                 $bg
 
-        focused_workspace  #458588 #458588 #ebdbb2
-        active_workspace   #458588 #282828 #ebdbb2
-        inactive_workspace #282828 #282828 #ebdbb2
+        focused_workspace  $blue   $blue   $fg
+        active_workspace   $blue   $bg     $fg
+        inactive_workspace $bg     $bg     $fg
 
         binding_mode       #3c3836 #3c3836 #ebdbb2
-        separator #b16286
+        separator $purple
     }
 }
 
