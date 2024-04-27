@@ -3,21 +3,21 @@ require("keymaps")
 
 -- Options
 vim.o.number = true -- show line numbers
-vim.o.relativenumber = true -- show relative line numbers
+vim.o.relativenumber = false -- show relative line numbers
 vim.o.scl = "no" -- hide/show sign collumn
 
 vim.opt.colorcolumn = "80"
 
-vim.o.tabstop = 4 -- number of columns occupied by a tab
-vim.o.softtabstop = 4 -- see multiple spaces as tabstops
-vim.o.expandtab = true -- converts tabs to white space
-vim.o.shiftwidth = 4 -- sets width for autoindent
-vim.o.autoindent = true -- indent new lines the same amount as previous line
+vim.o.tabstop = 4 -- width of a tab
+vim.o.softtabstop = 4 -- treat multiple spaces as tabs
+vim.o.expandtab = true -- convert tabs to spaces
+vim.o.shiftwidth = 4 -- set width for autoindent
+vim.o.autoindent = true
 
 vim.o.ttyfast = true -- increases scrolling speed
 vim.o.cursorline = true -- highlight current line
 vim.o.updatetime = 250
-vim.o.syntax = false -- disable regex syntax (treesitter insstead)
+vim.o.syntax = false -- disable regex syntax (use treesitter instead)
 
 -- stops highlighting after search is complete
 vim.o.hlsearch = false
