@@ -3,7 +3,7 @@ require("keymaps")
 
 -- Options
 vim.o.number = true -- show line numbers
-vim.o.relativenumber = false -- show relative line numbers
+vim.o.relativenumber = true -- show relative line numbers
 vim.o.scl = "no" -- hide/show sign collumn
 
 vim.opt.colorcolumn = "80"
@@ -17,7 +17,6 @@ vim.o.autoindent = true
 vim.o.ttyfast = true -- increases scrolling speed
 vim.o.cursorline = true -- highlight current line
 vim.o.updatetime = 250
-vim.o.syntax = false -- disable regex syntax (use treesitter instead)
 
 -- stops highlighting after search is complete
 vim.o.hlsearch = false
