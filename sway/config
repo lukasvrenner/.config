@@ -288,10 +288,6 @@ bindsym $mod+m mode "jump to mark"
 # Restart
 bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcut. Do you really want to restart? This will shut down your computer.' -B 'Yes, restart' 'reboot'
 
-# Screenshots
-bindsym Print exec ~/bin/fuzzel/screenshot/screenshot.sh
-#bindsym $mod+c exec pkill wf-recorder 
-
 # Screen lock
 # bindsym $mod+Shift+l exec $lock
 
