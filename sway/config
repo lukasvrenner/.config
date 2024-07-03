@@ -222,6 +222,8 @@ bindsym $mod+Shift+q kill
 # Start launcher
 bindsym $mod+o exec $menu
 
+bindsym $mod+Shift+e exec systemctl suspend
+
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
