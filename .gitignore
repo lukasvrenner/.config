@@ -1,7 +1,7 @@
 VirtualBox/
 libvirt
 gnome-boxes
-xfce4/xconf
+xfce4/
 user-*
 keypassxc/
 Thunar/accels.scm
