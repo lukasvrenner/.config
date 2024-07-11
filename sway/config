@@ -298,8 +298,6 @@ bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcu
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
-set $volume_helper_cmd ~/.config/sway/volume_helper.sh
-
 # Allow volume controls even if the screen is locked
 bindsym --locked {
     XF86AudioRaiseVolume exec \
