@@ -28,20 +28,29 @@ ln -s $path/.bash_profile ~/.bash_profile
 
 install=()
 
-# window manager
+# graphical
 install+='sway'
 install+='swaybar' # status bar for sway
-
-# efficient status bar generator
 install+='i3status'
-
-# application launch
 install+='wmenu' 
-
-# blazingly fast and lightweight wayland terminal emulator
 install+='foot'
+install+='firefox'
+install+=Thunar # GTK file manager
 
-# a heavily refactored vim fork
+install+=nnn # terminal file manager
+
+
+# development 
+
+# rust compiler
+echo "installing Rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo component add rust-analyzer # LSP
+
+# C compiler
+install+=gcc
+install+=clang-tools-extra # provides clangd and clang-format
+
 install+='neovim'
 git clone --depth=1 https://github.com/savq/paq-nvim.git \
     "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
@@ -49,28 +58,6 @@ git clone --depth=1 https://github.com/savq/paq-nvim.git \
 nvim +PaqInstall +q # install plugins and quit
 
 install+=ripgrep
-
-# web browser
-install+='firefox'
-
-# development 
-install+='gh'
-
-# note: will require user input to complete
-if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]
-then
-    echo "installing Rust"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    cargo component add rust-analyzer # LSP
-else
-    echo "Rust was not installed"
-
-# file managers
-install+=nnn # terminal
-install+=Thunar # GTK
-
-install+=clang
-install+=clang-tools-extra
-install+=clang-analyzer
+install+='gh' # github CLI
 
 sudo dnf install ${install[*]}
