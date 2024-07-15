@@ -29,15 +29,15 @@ ln -s $path/.bash_profile ~/.bash_profile
 install=()
 
 # graphical
-install+='sway'
-install+='swaybar' # status bar for sway
-install+='i3status'
-install+='wmenu' 
-install+='foot'
-install+='firefox'
-install+=Thunar # GTK file manager
+install+='sway '
+install+='swaybar ' # status bar for sway
+install+='i3status '
+install+='wmenu ' 
+install+='foot '
+install+='firefox '
+install+='Thunar ' # GTK file manager
 
-install+=nnn # terminal file manager
+install+='nnn ' # terminal file manager
 
 
 # development 
@@ -48,8 +48,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo component add rust-analyzer # LSP
 
 # C compiler
-install+=gcc
-install+=clang-tools-extra # provides clangd and clang-format
+install+='gcc '
+install+='clang-tools-extra ' # provides clangd and clang-format
 
 install+='neovim'
 git clone --depth=1 https://github.com/savq/paq-nvim.git \
@@ -57,7 +57,7 @@ git clone --depth=1 https://github.com/savq/paq-nvim.git \
 
 nvim +PaqInstall +q # install plugins and quit
 
-install+=ripgrep
-install+='gh' # github CLI
+install+='ripgrep '
+install+='gh ' # github CLI
 
 sudo dnf install ${install[*]}
