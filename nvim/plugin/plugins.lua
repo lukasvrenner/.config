@@ -14,7 +14,6 @@ require("paq") {
     "hrsh7th/nvim-cmp", -- completion engine
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- snippet completion
-    "numToStr/Comment.nvim", -- allows for commenting vs gc and gcc
     "ellisonleao/gruvbox.nvim", -- gruvbox theme
     -- fuzzy finder
     "nvim-telescope/telescope.nvim",
