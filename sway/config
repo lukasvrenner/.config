@@ -294,17 +294,12 @@ bindsym $mod+Shift+r exec swaynag -t warning -m 'You pressed the restart shortcu
 # bindsym $mod+Shift+l exec $lock
 
 # # Volume controls:
-# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Allow volume controls even if the screen is locked
 bindsym --locked {
-    XF86AudioRaiseVolume exec \
-        $volume_helper_cmd --limit "$volume_limit" --increase "$volume_step"
-    XF86AudioLowerVolume exec \
-        $volume_helper_cmd --limit "$volume_limit" --decrease "$volume_step"
-    XF86AudioMute    exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volume_helper_cmd
+    XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 }
 
