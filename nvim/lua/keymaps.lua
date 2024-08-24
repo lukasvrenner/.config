@@ -13,3 +13,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- use esc to enter normal mode in terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- copy to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])

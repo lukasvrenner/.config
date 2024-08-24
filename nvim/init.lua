@@ -25,7 +25,6 @@ vim.o.incsearch = true
 vim.o.scrolloff = 5 -- starts scrolling ten lines before bottom or top
 vim.o.swapfile = false
 vim.termguicolors = true -- 256 color support
-vim.o.clipboard = "unnamedplus" -- use system clipboard
 vim.cmd[[colorscheme gruvbox]]
 
 -- -- disables autocommenting on new lines
