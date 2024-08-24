@@ -1,6 +1,3 @@
--- require('mason').setup {}
--- require('mason-lspconfig').setup()
-
 local cmp = require'cmp'
 
 cmp.setup({
