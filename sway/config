@@ -342,7 +342,9 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-set $screenrecord wf-recorder -g "$(slurp)" -f ~/Videos/screenshots/mov-$(date +"%Y-%m-%d--%H-%M-%s.mp4")
+bindsym $mod+shift+p exec grim -g "$(slurp -d)" ~/Pictures/screenshots/$(date +"%Y-%m-%d-%H:%M:%s.png")
+
+set $screenrecord wf-recorder -g "$(slurp)" -f ~/Videos/screenshots/mov-$(date +"%Y-%m-%d-%H:%M:%s.mp4")
 bindsym Ctrl+Shift+F6 exec $screenrecord
 bindsym Ctrl+Shift+Backspace exec killall -s SIGINT wf-recorder
 
