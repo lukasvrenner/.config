@@ -92,12 +92,6 @@ input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# Monitor positions
-output LVDS-1 pos 0 0
-output HDMI-A-1 pos -280 -1050
-
-
-
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
