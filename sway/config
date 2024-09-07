@@ -39,10 +39,10 @@ set $menu dmenu_path | wmenu -N 282828 -n ebdbb2 -S 458588 -f "source code pro 1
 set $lock swaylock
 
 ### Idle configuration
-exec swayidle -w \
-timeout 300 '$lock' \
-timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-before-sleep '$lock'
+# exec swayidle -w \
+# timeout 300 '$lock' \
+# timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# before-sleep '$lock'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 100 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -216,7 +216,7 @@ bindsym $mod+Shift+q kill
 # Start launcher
 bindsym $mod+o exec $menu
 
-bindsym $mod+Shift+e exec systemctl suspend
+bindsym $mod+Shift+e exec swaylock & systemctl suspend
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
