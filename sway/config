@@ -68,17 +68,17 @@ input type:keyboard {
     xkb_variant dvorak
     repeat_rate 040
     repeat_delay 200
-    xkb_options altwin:swap_alt_win,caps:swapescape
+    xkb_options altwin:swap_alt_win,caps:swapescape,compose:rwin
 }
 
 # don't swap esc and caps for kinesis keyboard
 input 10730:866:Kinesis_Corporation_Adv360_Pro_Keyboard {
-    xkb_options altwin:swap_alt_win
+    xkb_options altwin:swap_alt_win,compose:rctrl
 }
 
 # don't swap alt and win for Mac keyboard
 input 1452:594:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad {
-    xkb_options caps:swapescape
+    xkb_options caps:swapescape,compose:ralt
 }
 
 ### Output configuration
@@ -101,10 +101,6 @@ floating_modifier $mod normal
 
 # Screen Lock
 # enable or disable screen on lid-close/open
-
-# breaking my system!!!! :(
-# exec_always ~/.config/sway/clamshell.sh
-
 bindswitch --locked lid:on output LVDS-1 disable
 bindswitch --locked lid:off output LVDS-1 enable
 
