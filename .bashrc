@@ -77,7 +77,7 @@ n ()
 ###############
 #   ALIASES   #
 ###############
-alias s=ls
+alias s='ls -l'
 
 # # set prompt
 PS1='\[\e[${PROMPT_COLOR:-32}m\]\u@\h\[\e[0m\]:\[\e[${PROMPT_COLOR:-32}m\]\w\[\e[0;31m\]${?#0}\[\e[0m\]\$ '
