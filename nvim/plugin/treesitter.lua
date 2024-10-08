@@ -9,5 +9,5 @@ require('nvim-treesitter.configs').setup {
     -- }
 }
 
--- unrelated to treesitter
-require("nvim-autopairs").setup()
+-- -- unrelated to treesitter
+-- require("nvim-autopairs").setup()
